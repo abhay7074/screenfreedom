@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Screen Freedom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.7; color: #1E293B; background: #F8FAFC; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 48px 24px; }
+        .header { background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; padding: 48px 24px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 12px; }
+        .header p { color: rgba(255,255,255,0.9); font-size: 1.125rem; }
+        .content { background: white; padding: 48px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: -32px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin: 32px 0; }
+        .contact-card { background: #F8FAFC; padding: 24px; border-radius: 12px; border-left: 4px solid #10B981; transition: all 0.3s; }
+        .contact-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .contact-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #10B981 0%, #059669 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; margin-bottom: 16px; }
+        .contact-title { font-size: 1.25rem; font-weight: 700; color: #0F172A; margin-bottom: 8px; }
+        .contact-detail { color: #64748B; margin-bottom: 8px; }
+        .contact-link { color: #10B981; text-decoration: none; font-weight: 600; }
+        .contact-link:hover { text-decoration: underline; }
+        .whatsapp-btn { background: #25D366; color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 12px; font-size: 1.125rem; transition: all 0.3s; box-shadow: 0 4px 6px rgba(37, 211, 102, 0.3); }
+        .whatsapp-btn:hover { background: #20BA5A; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4); }
+        .form-section { background: #F0F9FF; padding: 32px; border-radius: 16px; margin-top: 32px; border: 2px solid #10B981; }
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-weight: 600; margin-bottom: 8px; color: #0F172A; }
+        .form-input, .form-textarea { width: 100%; padding: 12px 16px; border: 2px solid #E2E8F0; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 1rem; transition: all 0.3s; }
+        .form-input:focus, .form-textarea:focus { outline: none; border-color: #10B981; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1); }
+        .form-textarea { min-height: 150px; resize: vertical; }
+        .submit-btn { background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; padding: 14px 32px; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.3s; width: 100%; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3); }
+        .back-link { display: inline-block; margin-bottom: 24px; color: #10B981; font-weight: 600; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+        .info-box { background: #FEF3C7; padding: 20px; border-radius: 12px; margin: 24px 0; border-left: 4px solid #F59E0B; }
+        .faq-section { margin-top: 48px; }
+        .faq-item { background: white; border: 1px solid #E2E8F0; padding: 20px; border-radius: 8px; margin-bottom: 12px; }
+        .faq-question { font-weight: 600; color: #0F172A; margin-bottom: 8px; }
+        h2 { color: #0F172A; font-size: 1.75rem; margin-top: 32px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #10B981; }
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .header { padding: 32px 24px; }
+            .header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>📞 Get in Touch</h1>
+    <p>We're here to help you transform your family</p>
+</div>
+
+<div class="container">
+    <div class="content">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
+        <p style="font-size: 1.125rem; margin-bottom: 32px;">
+            Have questions about Screen Freedom? Need help with your order? Facing challenges implementing the system? We're here for you!
+        </p>
+        
+        <div style="text-align: center; margin: 32px 0;">
+            <a href="https://wa.me/917703078859?text=Hi%20Screen%20Freedom%2C%20I%20need%20help%20with..." class="whatsapp-btn" target="_blank">
+                💬 Chat on WhatsApp - Instant Support
+            </a>
+            <p style="color: #64748B; margin-top: 12px; font-size: 0.875rem;">Average response time: 2-4 hours</p>
+        </div>
+        
+        <h2>📧 Contact Information</h2>
+        
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <div class="contact-title">Email Support</div>
+                <div class="contact-detail">For general inquiries and support</div>
+                <a href="mailto:support@screenfreedom.com" class="contact-link">support@screenfreedom.com</a>
+                <div style="margin-top: 8px; font-size: 0.875rem; color: #64748B;">Response: 24-48 hours</div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">💬</div>
+                <div class="contact-title">WhatsApp Support</div>
+                <div class="contact-detail">Fastest way to reach us</div>
+                <a href="https://wa.me/917703078859" class="contact-link" target="_blank">+91 77030 78859</a>
+                <div style="margin-top: 8px; font-size: 0.875rem; color: #64748B;">Mon-Fri: 9 AM - 6 PM IST</div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">🔄</div>
+                <div class="contact-title">Refund Inquiries</div>
+                <div class="contact-detail">For refund-related questions</div>
+                <a href="mailto:refunds@screenfreedom.com" class="contact-link">refunds@screenfreedom.com</a>
+                <div style="margin-top: 8px; font-size: 0.875rem; color: #64748B;">See our Refund Policy first</div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">🔒</div>
+                <div class="contact-title">Privacy Concerns</div>
+                <div class="contact-detail">Data protection & privacy</div>
+                <a href="mailto:privacy@screenfreedom.com" class="contact-link">privacy@screenfreedom.com</a>
+                <div style="margin-top: 8px; font-size: 0.875rem; color: #64748B;">GDPR & data requests</div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">📦</div>
+                <div class="contact-title">Order Issues</div>
+                <div class="contact-detail">Download problems, access issues</div>
+                <a href="mailto:support@screenfreedom.com" class="contact-link">support@screenfreedom.com</a>
+                <div style="margin-top: 8px; font-size: 0.875rem; color: #64748B;">Include your Order ID</div>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">🤝</div>
+                <div class="contact-title">Partnerships</div>
+                <div class="contact-detail">Media, collaborations, affiliates</div>
+                <a href="mailto:partner@screenfreedom.com" class="contact-link">partner@screenfreedom.com</a>
+                <div style="margin-top: 8px; font-size: 0.875rem; color: #64748B;">Business inquiries only</div>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <strong>⏰ Support Hours:</strong><br>
+            Monday - Friday: 9:00 AM - 6:00 PM (Indian Standard Time)<br>
+            Saturday: 10:00 AM - 4:00 PM (Indian Standard Time)<br>
+            Sunday: Closed (We spend time with our families too! 😊)<br>
+            <em>National Holidays: Closed</em>
+        </div>
+        
+        <h2>📝 Send Us a Message</h2>
+        
+        <div class="form-section">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label class="form-label">Your Name *</label>
+                    <input type="text" class="form-input" id="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Email Address *</label>
+                    <input type="email" class="form-input" id="email" required placeholder="your@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Order ID (if applicable)</label>
+                    <input type="text" class="form-input" id="orderId" placeholder="e.g., SF-123456">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Subject *</label>
+                    <input type="text" class="form-input" id="subject" required placeholder="What is this regarding?">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Message *</label>
+                    <textarea class="form-textarea" id="message" required placeholder="Please describe your question or concern in detail..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">📧 Send Message</button>
+                
+                <p style="margin-top: 16px; font-size: 0.875rem; color: #64748B; text-align: center;">
+                    We'll respond within 24-48 hours (business days)
+                </p>
+            </form>
+        </div>
+        
+        <h2>❓ Quick Answers (FAQ)</h2>
+        
+        <div class="faq-section">
+            <div class="faq-item">
+                <div class="faq-question">Q: I didn't receive my download link. What should I do?</div>
+                <div style="color: #64748B;">
+                    A: First, check your spam/junk folder. If you still can't find it, email support@screenfreedom.com with your Order ID and payment screenshot. We'll resend it within 2 hours.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: Can I get a refund?</div>
+                <div style="color: #64748B;">
+                    A: All sales are final for digital products. Please read our <a href="refund-policy.html" style="color: #10B981;">Refund Policy</a> for exceptions. If you have a legitimate technical issue, contact refunds@screenfreedom.com.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: The system isn't working for my child. Can you help?</div>
+                <div style="color: #64748B;">
+                    A: Absolutely! Email support@screenfreedom.com with specific details about your situation (child's age, what you've tried, challenges faced). We'll provide personalized guidance.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: Do you offer phone support?</div>
+                <div style="color: #64748B;">
+                    A: We don't offer phone calls, but WhatsApp support (+91 77030 78859) is almost as good! You can send text messages, voice notes, or even screenshots. We respond within 2-4 hours during business hours.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: Can I share the eBook with my sister/friend?</div>
+                <div style="color: #64748B;">
+                    A: No, sharing is a violation of copyright law. Each purchase is for one family only. If your friend wants it, they can purchase at screenfreedom.com. We appreciate your understanding!
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: How long does it take to get a response?</div>
+                <div style="color: #64748B;">
+                    A: WhatsApp: 2-4 hours (Mon-Fri). Email: 24-48 hours. We respond to all messages in the order received. During weekends and holidays, there may be delays.
+                </div>
+            </div>
+        </div>
+        
+        <div style="background: #F0F9FF; padding: 32px; border-radius: 16px; margin-top: 48px; text-align: center; border: 2px solid #10B981;">
+            <h3 style="color: #0F172A; margin-bottom: 16px;">🎯 Haven't Purchased Yet?</h3>
+            <p style="color: #64748B; margin-bottom: 24px;">
+                Join 3,000+ families who've already transformed their lives with the Screen Freedom system.
+            </p>
+            <a href="index.html#order" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-block;">
+                Get Screen Freedom Now - ₹397
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+// Contact form submission
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const orderId = document.getElementById('orderId').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    // Create mailto link
+    const mailtoLink = `mailto:support@screenfreedom.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nOrder ID: ${orderId || 'N/A'}\n\nMessage:\n${message}`
+    )}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show confirmation
+    alert('Your email client will open. Please send the email to complete your message. We\'ll respond within 24-48 hours!');
+});
+
+// Track page view
+if (typeof gtag !== 'undefined') {
+    gtag('event', 'page_view', {
+        'page_title': 'Contact Us',
+        'page_location': window.location.href
+    });
+}
+</script>
+
+</body>
+</html>
