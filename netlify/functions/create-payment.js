@@ -1,18 +1,6 @@
 // netlify/functions/create-payment.js
 const fetch = require('node-fetch');
 
-const CASHFREE_CONFIG = {
-  appId: process.env.CASHFREE_APP_ID,
-  secretKey: process.env.CASHFREE_SECRET_KEY,
-  apiVersion: '2023-08-01',
-  environment: 'production'
-};
-
-const CASHFREE_API = {
-  production: 'https://api.cashfree.com/pg',
-  sandbox: 'https://sandbox.cashfree.com/pg'
-};
-
 exports.handler = async (event, context) => {
   const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -34,6 +22,27 @@ exports.handler = async (event, context) => {
   }
 
   try {
+    const appId = process.env.CASHFREE_APP_ID;
+    const secretKey = process.env.CASHFREE_SECRET_KEY;
+
+    console.log('=== ENVIRONMENT CHECK ===');
+    console.log('App ID exists:', !!appId);
+    console.log('App ID value:', appId);
+    console.log('Secret Key exists:', !!secretKey);
+    console.log('Secret Key prefix:', secretKey?.substring(0, 20));
+
+    if (!appId || !secretKey) {
+      console.error('CRITICAL: Missing credentials');
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ 
+          error: 'Configuration error',
+          details: 'Missing API credentials'
+        })
+      };
+    }
+
     const { customerName, customerEmail } = JSON.parse(event.body);
 
     if (!customerName || !customerEmail) {
@@ -44,70 +53,110 @@ exports.handler = async (event, context) => {
       };
     }
 
-    const orderId = 'SF_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-    const orderAmount = 397;
-    const orderCurrency = 'INR';
+    const orderId = 'ORDER_' + Date.now();
+    const customerId = 'CUST_' + Date.now();
 
-    const orderData = {
+    const requestBody = {
+      order_amount: 397,
+      order_currency: "INR",
       order_id: orderId,
-      order_amount: orderAmount,
-      order_currency: orderCurrency,
       customer_details: {
-        customer_id: 'CUST_' + Date.now(),
-        customer_name: customerName,
+        customer_id: customerId,
         customer_email: customerEmail,
-        customer_phone: '9999999999'
+        customer_phone: "9999999999",
+        customer_name: customerName
       },
       order_meta: {
-        return_url: `https://screenfreedom.netlify.app/thank-you.html?order_id=${orderId}&email=${encodeURIComponent(customerEmail)}`,
-        notify_url: 'https://screenfreedom.netlify.app/.netlify/functions/payment-webhook'
-      },
-      order_note: 'Screen Freedom eBook Purchase'
+        return_url: `https://screenfreedom.netlify.app/thank-you.html?order_id=${orderId}`,
+        notify_url: "https://screenfreedom.netlify.app/.netlify/functions/payment-webhook"
+      }
     };
 
-    const apiUrl = CASHFREE_API[CASHFREE_CONFIG.environment] + '/orders';
+    console.log('=== REQUEST DETAILS ===');
+    console.log('Order ID:', orderId);
+    console.log('Customer:', customerName, customerEmail);
+    console.log('Request Body:', JSON.stringify(requestBody, null, 2));
+
+    const apiUrl = 'https://api.cashfree.com/pg/orders';
+
+    console.log('=== API CALL ===');
+    console.log('URL:', apiUrl);
 
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers: {
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'x-api-version': CASHFREE_CONFIG.apiVersion,
-        'x-client-id': CASHFREE_CONFIG.appId,
-        'x-client-secret': CASHFREE_CONFIG.secretKey
+        'x-api-version': '2023-08-01',
+        'x-client-id': appId,
+        'x-client-secret': secretKey
       },
-      body: JSON.stringify(orderData)
+      body: JSON.stringify(requestBody)
     });
 
-    const result = await response.json();
+    const responseText = await response.text();
+    console.log('=== API RESPONSE ===');
+    console.log('Status:', response.status);
+    console.log('Status Text:', response.statusText);
+    console.log('Response Body:', responseText);
+
+    let result;
+    try {
+      result = JSON.parse(responseText);
+    } catch (e) {
+      console.error('Failed to parse response:', e);
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({
+          error: 'Invalid response from payment gateway',
+          details: responseText
+        })
+      };
+    }
 
     if (!response.ok) {
-      console.error('Cashfree API Error:', result);
+      console.error('=== API ERROR ===');
+      console.error('Error Response:', result);
       return {
         statusCode: response.status,
         headers,
-        body: JSON.stringify({ error: 'Payment gateway error', details: result })
+        body: JSON.stringify({ 
+          error: 'Payment gateway error', 
+          details: result,
+          message: result.message || 'Unknown error'
+        })
       };
     }
+
+    console.log('=== SUCCESS ===');
+    console.log('Payment Session ID:', result.payment_session_id);
+    console.log('Order ID:', result.order_id);
 
     return {
       statusCode: 200,
       headers,
       body: JSON.stringify({
         success: true,
-        orderId: orderId,
+        orderId: result.order_id,
         paymentSessionId: result.payment_session_id,
-        paymentLink: result.payment_link || `https://payments.cashfree.com/order/#${result.payment_session_id}`,
-        orderAmount: orderAmount,
+        paymentLink: `https://payments.cashfree.com/order/#${result.payment_session_id}`,
+        orderAmount: 397,
         customerEmail: customerEmail
       })
     };
 
   } catch (error) {
-    console.error('Function Error:', error);
+    console.error('=== FUNCTION ERROR ===');
+    console.error('Error:', error);
+    console.error('Stack:', error.stack);
     return {
       statusCode: 500,
       headers,
-      body: JSON.stringify({ error: 'Internal server error', message: error.message })
+      body: JSON.stringify({ 
+        error: 'Internal server error', 
+        message: error.message
+      })
     };
   }
 };
