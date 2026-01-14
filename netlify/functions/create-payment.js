@@ -67,7 +67,7 @@ exports.handler = async (event, context) => {
         customer_name: customerName
       },
       order_meta: {
-        return_url: `https://screenfreedom.netlify.app/thank-you.html?order_id=${orderId}`,
+        return_url: `https://screenfreedom.netlify.app/payment-verify.html?order_id=${orderId}`,
         notify_url: "https://screenfreedom.netlify.app/.netlify/functions/payment-webhook"
       }
     };
