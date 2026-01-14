@@ -781,7 +781,7 @@ function closeEmailPopup() {
     document.getElementById('emailPopup').classList.remove('active');
     document.body.style.overflow = 'auto';
 }
-
+    
 async function proceedToPayment(event) {
     event.preventDefault();
     
@@ -824,35 +824,52 @@ async function proceedToPayment(event) {
         
         console.log('Payment Response:', data);
         
-        if (data.success && data.paymentSessionId) {
-            if (typeof fbq !== 'undefined') {
-                fbq('trackCustom', 'PaymentSessionCreated', {
-                    order_id: data.orderId,
-                    value: 397,
-                    currency: 'INR'
-                });
-            }
-            
-            closeEmailPopup();
-            
-            const cashfree = Cashfree({
-                mode: "production"
-            });
-            
-            cashfree.checkout({
-                paymentSessionId: data.paymentSessionId,
-                returnUrl: `https://screenfreedom.netlify.app/thank-you.html?order_id=${data.orderId}&email=${encodeURIComponent(email)}`
-            });
-            
-        } else {
+        if (!response.ok || !data.success) {
             throw new Error(data.error || 'Payment creation failed');
         }
+        
+        if (!data.paymentSessionId) {
+            throw new Error('Payment session ID not received');
+        }
+        
+        if (typeof fbq !== 'undefined') {
+            fbq('trackCustom', 'PaymentSessionCreated', {
+                order_id: data.orderId,
+                value: 397,
+                currency: 'INR'
+            });
+        }
+        
+        closeEmailPopup();
+        
+        // Initialize Cashfree (EXACTLY like working project)
+        const cashfree = Cashfree({
+            mode: "production"
+        });
+        
+        const checkoutOptions = {
+            paymentSessionId: data.paymentSessionId,
+            returnUrl: `https://screenfreedom.netlify.app/thank-you.html?order_id=${data.orderId}&email=${encodeURIComponent(email)}`
+        };
+        
+        // Open Cashfree payment (EXACTLY like working project)
+        cashfree.checkout(checkoutOptions).then(function(result) {
+            if (result.error) {
+                console.error('Payment error:', result.error);
+                alert('Payment failed. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
+            if (result.redirect) {
+                console.log('Payment redirect');
+            }
+        });
         
     } catch (error) {
         console.error('Payment Error:', error);
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
-        alert('Payment system error. Please try again or contact support at +917703078859');
+        alert('Payment error: ' + error.message + '\n\nContact: +917703078859');
         if (typeof fbq !== 'undefined') {
             fbq('trackCustom', 'PaymentError', {
                 error: error.message
@@ -860,7 +877,7 @@ async function proceedToPayment(event) {
         }
     }
 }
-
+    
 let exitIntentShown = false;
 document.addEventListener('mouseleave', (e) => {
     if (!exitIntentShown && e.clientY <= 0 && window.innerWidth > 768) {
@@ -923,3 +940,4 @@ console.log('✅ All features working');
 
 </body>
 </html>
+
