@@ -835,11 +835,6 @@ async function proceedToPayment(event) {
         }
     }
 }
-    
-    alert(`Payment integration coming soon!\n\nName: ${name}\nEmail: ${email}\nAmount: ₹397`);
-    closeEmailPopup();
-}
-
 let exitIntentShown = false;
 document.addEventListener('mouseleave', (e) => {
     if (!exitIntentShown && e.clientY <= 0 && window.innerWidth > 768) {
@@ -907,4 +902,5 @@ console.log('✅ Facebook Pixel tracking (25%, 50%, 75%, 90%)');
 
 </body>
 </html>
+
 
