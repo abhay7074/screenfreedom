@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifying Payment... | Screen Freedom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 600px;
+        }
+        .spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255,255,255,0.1);
+            border-top: 8px solid #10B981;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 30px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .status {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            font-size: 0.95rem;
+        }
+        .error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 2px solid #EF4444;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        .success {
+            background: rgba(16, 185, 129, 0.2);
+            border: 2px solid #10B981;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #10B981;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="spinner" id="spinner"></div>
+        <h1 id="title">Verifying Your Payment...</h1>
+        <p id="message">Please wait while we confirm your payment with Cashfree.</p>
+        <div class="status" id="status">
+            <p>🔒 Secure payment verification in progress</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">This usually takes 3-5 seconds</p>
+        </div>
+        <div id="result"></div>
+    </div>
 
+    <script>
+        // Get order ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('order_id');
+
+        if (!orderId) {
+            showError('No order ID found. Please contact support.');
+        } else {
+            verifyPayment(orderId);
+        }
+
+        async function verifyPayment(orderId) {
+            try {
+                console.log('Verifying payment for order:', orderId);
+
+                // Call verification function
+                const response = await fetch('/.netlify/functions/cashfree-verify-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ orderId: orderId })
+                });
+
+                const data = await response.json();
+                console.log('Verification response:', data);
+
+                if (data.success && data.order_status === 'PAID') {
+                    // Payment successful
+                    showSuccess(data);
+                    
+                    // Redirect to thank you page after 2 seconds
+                    setTimeout(() => {
+                        window.location.href = `thank-you.html?order_id=${orderId}&email=${data.customer_email || ''}`;
+                    }, 2000);
+                    
+                } else if (data.order_status === 'ACTIVE' || data.order_status === 'PENDING') {
+                    // Payment pending
+                    showPending();
+                    
+                } else {
+                    // Payment failed
+                    showFailed(data);
+                }
+
+            } catch (error) {
+                console.error('Verification error:', error);
+                showError('Unable to verify payment. Please contact support with your order ID: ' + orderId);
+            }
+        }
+
+        function showSuccess(data) {
+            document.getElementById('spinner').style.display = 'none';
+            document.getElementById('title').textContent = '✅ Payment Successful!';
+            document.getElementById('message').textContent = 'Your payment has been confirmed.';
+            document.getElementById('status').style.display = 'none';
+            
+            const result = document.getElementById('result');
+            result.className = 'success';
+            result.innerHTML = `
+                <h3 style="margin-bottom: 15px;">✅ Payment Verified</h3>
+                <p><strong>Order ID:</strong> ${data.order_id}</p>
+                <p><strong>Amount Paid:</strong> ₹${data.order_amount}</p>
+                <p style="margin-top: 15px;">Redirecting to download page...</p>
+            `;
+        }
+
+        function showPending() {
+            document.getElementById('title').textContent = '⏳ Payment Pending';
+            document.getElementById('message').textContent = 'Your payment is being processed.';
+            document.getElementById('status').innerHTML = `
+                <p>Please wait a moment and refresh this page.</p>
+                <a href="javascript:location.reload()" class="btn" style="margin-top: 15px; display: inline-block;">Refresh Page</a>
+            `;
+        }
+
+        function showFailed(data) {
+            document.getElementById('spinner').style.display = 'none';
+            document.getElementById('title').textContent = '❌ Payment Failed';
+            document.getElementById('message').textContent = 'Your payment could not be completed.';
+            document.getElementById('status').style.display = 'none';
+            
+            const result = document.getElementById('result');
+            result.className = 'error';
+            result.innerHTML = `
+                <h3 style="margin-bottom: 15px;">Payment Not Completed</h3>
+                <p>${data.message || 'Payment was not successful.'}</p>
+                <a href="index.html" class="btn" style="background: #EF4444;">Try Again</a>
+                <p style="margin-top: 15px; font-size: 0.9rem;">Need help? Contact: +917703078859</p>
+            `;
+        }
+
+        function showError(message) {
+            document.getElementById('spinner').style.display = 'none';
+            document.getElementById('title').textContent = '⚠️ Verification Error';
+            document.getElementById('message').textContent = message;
+            document.getElementById('status').style.display = 'none';
+            
+            const result = document.getElementById('result');
+            result.className = 'error';
+            result.innerHTML = `
+                <a href="index.html" class="btn" style="background: #EF4444;">Return to Home</a>
+                <p style="margin-top: 15px; font-size: 0.9rem;">Support: +917703078859</p>
+            `;
+        }
+    </script>
+</body>
+</html>
