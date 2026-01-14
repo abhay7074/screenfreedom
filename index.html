@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join 3,000+ Indian parents who broke their child's screen addiction in 30 days with our science-backed system.">
-    <title>Screen Freedom - 3,000+ Indian Parents Broke Screen Addiction in 30 Days</title>
+    <meta name="description" content="Join 3,000+ Indian parents who broke their child's screen addiction in 30 days">
+    <title>Screen Freedom - Break Screen Addiction in 30 Days</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Facebook Pixel Code -->
+    <!-- Facebook Pixel -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -23,349 +22,149 @@
     fbq('init', '713158408325221');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=713158408325221&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Facebook Pixel Code -->
     
     <style>
         :root {
             --primary: #0F172A;
             --secondary: #10B981;
             --accent: #F59E0B;
-            --background: #FFFFFF;
-            --surface: #F8FAFC;
-            --text-primary: #1E293B;
-            --text-secondary: #64748B;
-            --border: #E2E8F0;
-            --success: #10B981;
-            --warning: #F59E0B;
             --danger: #EF4444;
-            --space-xs: 8px;
-            --space-sm: 16px;
-            --space-md: 24px;
-            --space-lg: 32px;
-            --space-xl: 48px;
-            --space-2xl: 64px;
-            --space-3xl: 96px;
-            --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
+            --surface: #F8FAFC;
+            --text: #1E293B;
+            --text-light: #64748B;
+            --border: #E2E8F0;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: var(--text-primary); background: var(--background); line-height: 1.7; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.7; overflow-x: hidden; }
         
-        h1, h2, h3 { font-weight: 700; line-height: 1.2; color: var(--primary); margin-bottom: var(--space-md); }
-        h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; }
-        h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
-        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); font-weight: 600; }
-        p { margin-bottom: var(--space-md); line-height: 1.8; }
+        h1 { font-size: clamp(2rem, 6vw, 4rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
+        h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+        h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); font-weight: 700; margin-bottom: 0.75rem; }
+        p { margin-bottom: 1rem; line-height: 1.75; }
         
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: var(--space-md) var(--space-lg); display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
-        .nav-cta { background: var(--secondary); color: white; padding: 12px 24px; border-radius: var(--radius-lg); text-decoration: none; font-weight: 600; transition: all 0.3s; }
-        .nav-cta:hover { transform: translateY(-2px); }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-size: 1.25rem; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .nav-cta { background: var(--secondary); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.875rem; transition: all 0.3s; }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(16,185,129,0.3); }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-lg); }
-        .section { padding: var(--space-3xl) 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .section { padding: 4rem 0; }
         .section-alt { background: var(--surface); }
         
-        .hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: white; padding-top: 80px; position: relative; overflow: hidden; }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%); pointer-events: none; }
+        .hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 100%); color: white; padding: 6rem 0 4rem; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 30%, rgba(16,185,129,0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(245,158,11,0.1) 0%, transparent 50%); }
         .hero-content { position: relative; z-index: 1; }
-        .hero h1 { color: white; }
-        .hero-highlight { color: var(--secondary); animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
-        .hero-subheadline { font-size: clamp(1.125rem, 2vw, 1.5rem); color: rgba(255, 255, 255, 0.9); margin-bottom: var(--space-xl); }
+        .hero h1 { color: white; margin-bottom: 1.5rem; }
+        .hero-highlight { color: var(--secondary); }
+        .hero-subheadline { font-size: clamp(1rem, 2.5vw, 1.25rem); color: rgba(255,255,255,0.9); margin-bottom: 2rem; max-width: 600px; }
+        .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
         
-        .hero-cta-group { display: flex; gap: var(--space-md); flex-wrap: wrap; margin-bottom: var(--space-xl); }
-        .cta-primary { background: var(--secondary); color: white; padding: 18px 36px; border-radius: var(--radius-lg); text-decoration: none; font-weight: 700; font-size: 1.125rem; transition: all 0.3s; box-shadow: var(--shadow-xl); display: inline-flex; align-items: center; gap: 8px; }
-        .cta-primary:hover { transform: translateY(-3px); box-shadow: 0 25px 35px -5px rgba(16, 185, 129, 0.4); }
-        .cta-secondary { background: rgba(255, 255, 255, 0.1); color: white; padding: 18px 36px; border-radius: var(--radius-lg); text-decoration: none; font-weight: 600; font-size: 1.125rem; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .cta-primary { background: var(--secondary); color: white; padding: 1.25rem 2.5rem; border-radius: 16px; text-decoration: none; font-weight: 800; font-size: 1.125rem; box-shadow: 0 10px 25px rgba(16,185,129,0.3); display: inline-flex; align-items: center; gap: 0.5rem; border: none; cursor: pointer; transition: all 0.3s; }
+        .cta-primary:hover { transform: translateY(-4px); box-shadow: 0 15px 35px rgba(16,185,129,0.4); }
+        .cta-secondary { background: rgba(255,255,255,0.1); color: white; padding: 1.25rem 2.5rem; border-radius: 16px; text-decoration: none; font-weight: 700; font-size: 1.125rem; border: 2px solid rgba(255,255,255,0.3); }
         
-        .social-proof-strip { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border-radius: var(--radius-lg); padding: var(--space-lg); display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-lg); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .social-proof-strip { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border-radius: 20px; padding: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 2rem; border: 1px solid rgba(255,255,255,0.15); }
         .stat-item { text-align: center; }
-        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--secondary); display: block; }
-        .stat-label { font-size: 0.875rem; color: rgba(255, 255, 255, 0.8); margin-top: 8px; }
+        .stat-number { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 900; color: var(--secondary); display: block; }
+        .stat-label { font-size: clamp(0.75rem, 2vw, 0.875rem); color: rgba(255,255,255,0.8); margin-top: 0.5rem; }
         
-        .mirror-scenario { background: white; border-radius: var(--radius-xl); padding: var(--space-xl); box-shadow: var(--shadow-lg); border-left: 4px solid var(--warning); }
-        .scenario-text { font-size: 1.25rem; line-height: 1.8; font-style: italic; }
-        .scenario-question { font-size: 1.5rem; font-weight: 700; margin-top: var(--space-lg); }
+        .mirror-scenario { background: white; border-radius: 24px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-left: 4px solid var(--accent); margin: 2rem 0; }
+        .scenario-text { font-size: 1.125rem; line-height: 1.8; font-style: italic; color: var(--text); }
+        .scenario-question { font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-top: 1.5rem; }
         
-        .belief-card { background: white; border-radius: var(--radius-lg); padding: var(--space-xl); margin-bottom: var(--space-lg); box-shadow: var(--shadow-md); border-left: 4px solid var(--danger); transition: all 0.3s; }
-        .belief-card:hover { transform: translateX(8px); }
-        .belief-false { font-size: 1.5rem; font-weight: 700; color: var(--danger); margin-bottom: var(--space-md); }
+        .belief-card { background: white; border-radius: 20px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-left: 4px solid var(--danger); transition: all 0.3s; }
+        .belief-card:hover { transform: translateX(8px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+        .belief-false { font-size: 1.5rem; font-weight: 700; color: var(--danger); margin-bottom: 1rem; }
         .belief-false::before { content: '❌ '; }
-        .belief-true { font-size: 1.5rem; font-weight: 700; color: var(--success); margin-top: var(--space-lg); margin-bottom: var(--space-md); }
+        .belief-true { font-size: 1.5rem; font-weight: 700; color: var(--secondary); margin-top: 1.5rem; margin-bottom: 1rem; }
         .belief-true::before { content: '✅ '; }
         
-        .story-card { background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%); border-radius: var(--radius-xl); padding: var(--space-xl); box-shadow: var(--shadow-lg); }
-        .story-moment { background: white; padding: var(--space-lg); border-radius: var(--radius-md); margin: var(--space-lg) 0; border-left: 4px solid var(--secondary); }
+        .story-card { background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%); border-radius: 24px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .story-moment { background: white; padding: 1.5rem; border-radius: 16px; margin: 1.5rem 0; border-left: 4px solid var(--secondary); }
         
-        .laws-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg); margin-top: var(--space-xl); }
-        .law-card { background: white; border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-md); transition: all 0.3s; border-top: 4px solid var(--secondary); }
-        .law-card:hover { transform: translateY(-8px); }
-        .law-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--secondary) 0%, #0D9668 100%); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.75rem; margin-bottom: var(--space-md); }
-        .law-number { font-size: 0.875rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; margin-bottom: var(--space-sm); }
+        .laws-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .law-card { background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 4px solid var(--secondary); transition: all 0.3s; }
+        .law-card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+        .law-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--secondary), #0D9668); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; margin-bottom: 1rem; }
         
-        .transformation-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-xl); margin-top: var(--space-xl); }
-        .transformation-before, .transformation-after { padding: var(--space-xl); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); }
-        .transformation-before { background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border: 2px solid var(--warning); }
-        .transformation-after { background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%); border: 2px solid var(--success); }
-        .transformation-label { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--space-md); }
-        .transformation-list { list-style: none; padding: 0; }
-        .transformation-list li { padding: var(--space-sm) 0; font-size: 1.125rem; }
-        .transformation-before li::before { content: '😰 '; }
-        .transformation-after li::before { content: '✨ '; }
+        .transformation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .transform-before, .transform-after { padding: 2rem; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .transform-before { background: linear-gradient(135deg, #FEF3C7, #FDE68A); border: 2px solid var(--accent); }
+        .transform-after { background: linear-gradient(135deg, #D1FAE5, #A7F3D0); border: 2px solid var(--secondary); }
+        .transform-label { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; }
+        .transform-list { list-style: none; }
+        .transform-list li { padding: 0.75rem 0; font-size: 1.125rem; }
+        .transform-before li::before { content: '😰 '; }
+        .transform-after li::before { content: '✨ '; }
         
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-lg); margin-top: var(--space-xl); }
-        .testimonial-card { background: white; border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-md); transition: all 0.3s; }
-        .testimonial-card:hover { transform: translateY(-4px); }
-        .testimonial-stars { color: var(--warning); font-size: 1.25rem; margin-bottom: var(--space-md); }
-        .testimonial-text { font-style: italic; margin-bottom: var(--space-lg); }
-        .testimonial-author { display: flex; align-items: center; gap: var(--space-md); }
-        .testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--secondary) 0%, #0D9668 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .testimonial-card { background: white; border-radius: 20px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s; }
+        .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+        .testimonial-stars { color: var(--accent); font-size: 1.25rem; margin-bottom: 1rem; }
+        .testimonial-text { font-style: italic; margin-bottom: 1.5rem; color: var(--text); }
+        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+        .testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--secondary), #0D9668); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; }
         .testimonial-name { font-weight: 700; color: var(--primary); }
-        .testimonial-location { font-size: 0.875rem; color: var(--text-secondary); }
+        .testimonial-location { font-size: 0.875rem; color: var(--text-light); }
         
-        .value-stack { background: white; border-radius: var(--radius-xl); padding: var(--space-xl); box-shadow: var(--shadow-xl); max-width: 800px; margin: var(--space-xl) auto; }
-        .value-item { display: flex; justify-content: space-between; padding: var(--space-md); border-bottom: 1px solid var(--border); align-items: center; }
-        .value-name { font-weight: 600; flex: 1; }
-        .value-price { font-weight: 700; color: var(--text-secondary); text-decoration: line-through; }
-        .value-total { background: var(--surface); padding: var(--space-lg); border-radius: var(--radius-md); margin-top: var(--space-lg); text-align: center; }
-        .value-total-amount { font-size: 2.5rem; font-weight: 800; text-decoration: line-through; }
-        .price-reveal { background: linear-gradient(135deg, var(--secondary) 0%, #0D9668 100%); color: white; padding: var(--space-xl); border-radius: var(--radius-lg); text-align: center; margin-top: var(--space-lg); }
-        .price-reveal-amount { font-size: 4rem; font-weight: 800; line-height: 1; }
-        .price-comparison { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md); margin-top: var(--space-xl); }
-        .comparison-item { text-align: center; padding: var(--space-md); background: var(--surface); border-radius: var(--radius-md); }
-        .comparison-price { font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-sm); }
+        .value-stack { background: white; border-radius: 24px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 800px; margin: 2rem auto; }
+        .value-item { display: flex; justify-content: space-between; padding: 1rem; border-bottom: 1px solid var(--border); }
+        .value-name { font-weight: 600; }
+        .value-price { font-weight: 700; color: var(--text-light); text-decoration: line-through; }
+        .value-total { background: var(--surface); padding: 1.5rem; border-radius: 16px; margin-top: 1.5rem; text-align: center; }
+        .price-reveal { background: linear-gradient(135deg, var(--secondary), #0D9668); color: white; padding: 2rem; border-radius: 20px; text-align: center; margin-top: 1.5rem; box-shadow: 0 10px 30px rgba(16,185,129,0.3); }
+        .price-reveal-amount { font-size: 4rem; font-weight: 900; line-height: 1; }
         
         .faq-container { max-width: 800px; margin: 0 auto; }
-        .faq-item { background: white; border-radius: var(--radius-lg); padding: var(--space-lg); margin-bottom: var(--space-md); box-shadow: var(--shadow-sm); }
-        .faq-question { font-size: 1.25rem; font-weight: 600; margin-bottom: var(--space-md); }
+        .faq-item { background: white; border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .faq-question { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; }
         .faq-question::before { content: 'Q: '; color: var(--secondary); font-weight: 700; }
+        .faq-answer { color: var(--text-light); }
         
-        .disclaimer-box { background: #FEF3C7; border: 2px solid var(--warning); border-radius: var(--radius-lg); padding: var(--space-lg); margin: var(--space-xl) 0; }
-        .disclaimer-title { font-weight: 700; margin-bottom: var(--space-md); color: #92400E; }
-        .disclaimer-text { color: #78350F; font-size: 0.875rem; line-height: 1.7; }
+        .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; align-items: center; justify-content: center; padding: 1.5rem; }
+        .popup-overlay.active { display: flex !important; }
+        .popup-content { background: white; padding: 2.5rem; border-radius: 24px; max-width: 500px; width: 100%; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+        .popup-close { position: absolute; top: 1rem; right: 1rem; background: #F8FAFC; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; color: #64748B; }
+        .popup-title { font-size: 1.75rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .popup-subtitle { color: var(--text-light); margin-bottom: 1.5rem; }
+        .popup-form-group { margin-bottom: 1.25rem; }
+        .popup-label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary); }
+        .popup-input { width: 100%; padding: 1rem; border: 2px solid #E2E8F0; border-radius: 12px; font-size: 1rem; }
+        .popup-input:focus { outline: none; border-color: var(--secondary); }
+        .popup-submit { width: 100%; background: var(--secondary); color: white; padding: 1rem; border: none; border-radius: 12px; font-weight: 700; font-size: 1.125rem; cursor: pointer; }
         
-        .footer { background: var(--primary); color: white; padding: var(--space-xl) 0 var(--space-lg); }
-        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-lg); text-align: center; }
-        .footer-links { display: flex; justify-content: center; gap: var(--space-lg); flex-wrap: wrap; margin-bottom: var(--space-lg); }
-        .footer-link { color: rgba(255, 255, 255, 0.8); text-decoration: none; font-size: 0.875rem; }
+        .exit-popup { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 10001; align-items: center; justify-content: center; padding: 1.5rem; }
+        .exit-popup.active { display: flex !important; }
+        .exit-content { background: white; padding: 3rem; border-radius: 24px; max-width: 600px; width: 100%; text-align: center; position: relative; }
+        .exit-title { font-size: 2rem; color: var(--danger); margin-bottom: 1rem; }
+        .exit-text { font-size: 1.125rem; color: var(--text-light); margin-bottom: 1.5rem; }
+        .exit-cta { background: var(--secondary); color: white; padding: 1rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.125rem; display: inline-block; }
+        .exit-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+        
+        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 9999; }
+        .whatsapp-btn { width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(37,211,102,0.4); }
+        
+        .footer { background: var(--primary); color: white; padding: 3rem 0 2rem; text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .footer-link { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.875rem; }
         .footer-link:hover { color: white; }
         
         .text-center { text-align: center; }
-        .text-secondary { color: var(--text-secondary); }
-        .mb-lg { margin-bottom: var(--space-lg); }
-        .mt-xl { margin-top: var(--space-xl); }
+        .mb-lg { margin-bottom: 2rem; }
+        .mt-xl { margin-top: 3rem; }
         
         @media (max-width: 768px) {
-            .hero { min-height: auto; padding: 64px 0 48px; }
+            .hero { min-height: auto; padding: 5rem 0 3rem; }
             .hero-cta-group { flex-direction: column; }
             .cta-primary, .cta-secondary { width: 100%; justify-content: center; }
-            .social-proof-strip, .laws-grid, .transformation-container, .testimonials-grid, .price-comparison { grid-template-columns: 1fr; }
-        }
-        
-        /* Email Popup Modal */
-        .popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 10000;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            animation: fadeIn 0.3s ease;
-        }
-        .popup-overlay.active { display: flex; }
-        .popup-content {
-            background: white;
-            padding: 48px;
-            border-radius: 24px;
-            max-width: 500px;
-            width: 100%;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            animation: slideUp 0.3s ease;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        .popup-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: #F8FAFC;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: #64748B;
-            transition: all 0.3s;
-        }
-        .popup-close:hover {
-            background: #EF4444;
-            color: white;
-        }
-        .popup-title {
-            font-size: 1.75rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-        .popup-subtitle {
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-        }
-        .popup-form-group {
-            margin-bottom: 20px;
-        }
-        .popup-label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--primary);
-        }
-        .popup-input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #E2E8F0;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-        .popup-input:focus {
-            outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
-        }
-        .popup-submit {
-            width: 100%;
-            background: linear-gradient(135deg, var(--secondary) 0%, #0D9668 100%);
-            color: white;
-            padding: 16px;
-            border: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.125rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .popup-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3);
-        }
-        .popup-security {
-            text-align: center;
-            margin-top: 16px;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-        
-        /* WhatsApp Floating Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            z-index: 9999;
-        }
-        .whatsapp-btn-float {
-            width: 60px;
-            height: 60px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s;
-            animation: pulse-whatsapp 2s infinite;
-        }
-        .whatsapp-btn-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
-        }
-        @keyframes pulse-whatsapp {
-            0%, 100% { box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7); }
-        }
-        
-        /* Exit Intent Popup */
-        .exit-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 10001;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-        }
-        .exit-popup.active { display: flex; }
-        .exit-content {
-            background: white;
-            padding: 48px;
-            border-radius: 24px;
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-            position: relative;
-        }
-        .exit-title {
-            font-size: 2rem;
-            color: #EF4444;
-            margin-bottom: 16px;
-        }
-        .exit-text {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-        }
-        .exit-cta {
-            background: linear-gradient(135deg, var(--secondary) 0%, #0D9668 100%);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.125rem;
-            display: inline-block;
-            margin-bottom: 16px;
-        }
-        .exit-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #64748B;
+            .social-proof-strip { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .testimonials-grid, .laws-grid, .transformation-grid { grid-template-columns: 1fr; }
+            .popup-content, .exit-content { padding: 2rem 1.5rem; }
+            .nav-logo { font-size: 1rem; }
+            .nav-cta { padding: 0.5rem 1rem; font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -373,8 +172,8 @@
 
 <nav class="nav">
     <div class="nav-container">
-        <a href="#" class="nav-logo">🎯 Screen Freedom</a>
-        <a href="#order" class="nav-cta">Get Started</a>
+        <a href="index.html" class="nav-logo">🎯 Screen Freedom</a>
+        <button class="nav-cta" onclick="openEmailPopup()">Get Started</button>
     </div>
 </nav>
 
@@ -392,26 +191,28 @@
             </p>
             
             <div class="hero-cta-group">
-                <a href="#order" class="cta-primary">Start Your 30-Day Transformation →</a>
+                <button class="cta-primary" onclick="openEmailPopup()">
+                    Start Your 30-Day Transformation →
+                </button>
                 <a href="#how-it-works" class="cta-secondary">See How It Works</a>
             </div>
             
             <div class="social-proof-strip">
                 <div class="stat-item">
                     <span class="stat-number">3,000+</span>
-                    <span class="stat-label">Families Transformed</span>
+                    <span class="stat-label">Families</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">94%</span>
-                    <span class="stat-label">Success Rate</span>
+                    <span class="stat-label">Success</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">30</span>
-                    <span class="stat-label">Days to Freedom</span>
+                    <span class="stat-label">Days</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">18hrs</span>
-                    <span class="stat-label">Avg Reduction/Week</span>
+                    <span class="stat-label">Reduced</span>
                 </div>
             </div>
         </div>
@@ -428,15 +229,14 @@
                 "Did you hear me? Put. The. Phone. Down."<br><br>
                 Still nothing. Your blood pressure rises. You reach for the phone. They pull away. The tantrum begins.<br><br>
                 Screaming. Tears. "I HATE YOU! EVERYONE ELSE GETS TO USE THEIR PHONE!"<br><br>
-                You cave. Again. You hand it back just to have peace. The guilt crushes you.<br><br>
-                Later that night, you lie awake thinking: <em>"I'm failing as a parent. How did it get this bad?"</em>
+                You cave. Again. You hand it back just to have peace. The guilt crushes you.
             </p>
             <p class="scenario-question">Sound familiar?</p>
         </div>
         
         <div class="text-center mt-xl">
             <h2>You're Not Alone. And You're NOT a Bad Parent.</h2>
-            <p class="text-secondary" style="max-width: 65ch; margin: 0 auto;">
+            <p style="color: var(--text-light); max-width: 600px; margin: 0 auto;">
                 Over 3,000 Indian parents have stood exactly where you're standing right now. Overwhelmed. Guilty. Exhausted. Desperate for a solution that actually works.
             </p>
         </div>
@@ -447,14 +247,14 @@
     <div class="container">
         <div class="text-center mb-lg">
             <h2>But First, Let's Destroy the Lies<br>That Are Keeping You Stuck</h2>
-            <p class="text-secondary">These false beliefs are the real enemy. Not your child. Not you.</p>
+            <p style="color: var(--text-light);">These false beliefs are the real enemy. Not your child. Not you.</p>
         </div>
         
         <div class="belief-card">
             <h3 class="belief-false">"I'm a bad parent for letting this happen"</h3>
             <p>I understand. You see other parents who seem to have it together. Their kids play outside. Yours is glued to screens. The shame is crushing.</p>
             <p><strong>But here's what you need to know:</strong> You're not fighting your child. You're fighting billion-dollar algorithms.</p>
-            <p>Engineers at YouTube, TikTok, and gaming companies have spent YEARS and MILLIONS of rupees designing these apps to be as addictive as possible. They hire neuroscientists. Your child's brain never stood a chance.</p>
+            <p>Engineers at YouTube, TikTok, and gaming companies have spent YEARS and MILLIONS of rupees designing these apps to be as addictive as possible. Your child's brain never stood a chance.</p>
             <h3 class="belief-true">THE TRUTH: You're a GOOD parent fighting an unfair battle without the right weapons. Until now.</h3>
         </div>
         
@@ -462,35 +262,16 @@
             <h3 class="belief-false">"I don't have time for complicated parenting systems"</h3>
             <p>You're already exhausted. Working 9-10 hours. Managing home. The last thing you need is ANOTHER complicated system.</p>
             <p><strong>But here's the thing:</strong> You don't need more time. You need a SYSTEM that works WITH your life.</p>
-            <p>The Screen Freedom system takes 15-20 minutes to set up. After that? It runs on autopilot. Because it's based on environmental design, not willpower.</p>
+            <p>The Screen Freedom system takes 15-20 minutes to set up. After that? It runs on autopilot.</p>
             <h3 class="belief-true">THE TRUTH: The right system SAVES you time by eliminating daily battles. Parents report saving 2-3 hours per day.</h3>
         </div>
         
         <div class="belief-card">
-            <h3 class="belief-false">"My child is different / more addicted than others"</h3>
+            <h3 class="belief-false">"My child is different / more addicted"</h3>
             <p>Maybe your child is on screens 8-12 hours daily. Maybe they've become aggressive. You think: "This won't work for us."</p>
             <p><strong>But listen:</strong> Brain science is universal. What works for one brain works for all brains.</p>
-            <p>We've helped families with children gaming 16 hours daily. Children who broke doors when phones were taken. The science works because the brain follows predictable patterns.</p>
+            <p>We've helped families with children gaming 16 hours daily. The science works because the brain follows predictable patterns.</p>
             <h3 class="belief-true">THE TRUTH: Severe addiction means the system has been running longer, not that your child is broken.</h3>
-        </div>
-        
-        <div class="belief-card">
-            <h3 class="belief-false">"I've tried everything and nothing works"</h3>
-            <p>You've set rules. They got broken. You've taken devices away. The tantrums were unbearable. Nothing stuck.</p>
-            <p><strong>Here's what actually happened:</strong> You tried TOOLS. You never had a SYSTEM.</p>
-            <p>A tool is: "Take away the iPad."<br>
-            A system is: Make screens invisible + Make alternatives attractive + Add friction to access + Remove satisfaction from use.</p>
-            <p>Tools fail because they rely on willpower. Systems succeed because they make willpower irrelevant.</p>
-            <h3 class="belief-true">THE TRUTH: You haven't failed. You just didn't have the right system. The 4 Laws have a 94% success rate.</h3>
-        </div>
-        
-        <div class="belief-card">
-            <h3 class="belief-false">"It's too late; the damage is done"</h3>
-            <p>Maybe your child is 12, 14, 16. You think: "If only I'd acted sooner. It's too late now."</p>
-            <p><strong>I need you to hear this:</strong> Neuroplasticity means it's NEVER too late.</p>
-            <p>Your child's brain is still developing until age 25. The same plasticity that allowed addiction can reverse it.</p>
-            <p>We've seen 16-year-olds who were failing school, gaming 14 hours daily, completely transform in 60 days.</p>
-            <h3 class="belief-true">THE TRUTH: Every day you wait, the addiction strengthens. But every day you ACT, the healing begins. The best time is TODAY.</h3>
         </div>
     </div>
 </section>
@@ -499,14 +280,13 @@
     <div class="container">
         <div class="text-center mb-lg">
             <h2>Why Am I Qualified to Help You?</h2>
-            <p class="text-secondary">Not because I'm perfect. Because I was exactly where you are.</p>
+            <p style="color: var(--text-light);">Not because I'm perfect. Because I was exactly where you are.</p>
         </div>
         
         <div class="story-card">
             <p><strong>Three years ago, I hit rock bottom as a parent.</strong></p>
             <p>My 7-year-old son had turned into someone I didn't recognize. He'd wake up asking for the iPad. He'd scream when we said no. Family dinners? He'd sneak the phone under the table.</p>
             <p>I was exhausted. My wife was exhausted. We were fighting constantly.</p>
-            <p>The worst part? I knew I was the problem. I'd hand him the iPad whenever I needed to make a work call. I was using screens as a digital babysitter and hating myself for it.</p>
             
             <div class="story-moment">
                 <p><strong>The breaking point came on a Tuesday evening.</strong></p>
@@ -514,16 +294,13 @@
                 <p>That sentence broke something in me.</p>
             </div>
             
-            <p>I spent the next 6 months researching everything: neuroscience, behavioral psychology, habit formation. I read <em>Atomic Habits</em>, <em>Reset Your Child's Brain</em>, interviewed pediatricians.</p>
+            <p>I spent the next 6 months researching everything: neuroscience, behavioral psychology, habit formation.</p>
             <p><strong>And I discovered something shocking: Screen addiction isn't a willpower problem. It's an ENVIRONMENT problem.</strong></p>
             <p>When I redesigned our home environment using the 4 Laws of Behavior Change, everything shifted. Within 30 days, my son was playing outside again. Reading books. Helping in the kitchen.</p>
-            <p>The tantrums? Gone by week 2. The lying? Disappeared when screens became invisible.</p>
-            <p>Other parents saw the transformation and asked: "How did you do it?"</p>
-            <p>I shared the system with 12 families. Within 3 months, 11 reported dramatic improvements.</p>
             
             <div class="story-moment">
                 <p><strong>That system is what you're about to receive.</strong></p>
-                <p>Every strategy. Every template. Every script. The exact 30-day roadmap I used—and that 3,000+ families have now used.</p>
+                <p>Every strategy. Every template. The exact 30-day roadmap I used—and that 3,000+ families have now used.</p>
             </div>
         </div>
     </div>
@@ -533,62 +310,36 @@
     <div class="container">
         <div class="text-center mb-lg">
             <h2>The Secret? The 4 Laws of Behavior Change</h2>
-            <p class="text-secondary">Based on James Clear's <em>Atomic Habits</em>—the most powerful behavior change system ever created.</p>
+            <p style="color: var(--text-light);">Based on James Clear's <em>Atomic Habits</em>—the most powerful behavior change system ever created.</p>
         </div>
-        
-        <p class="text-center" style="max-width: 65ch; margin: 0 auto var(--space-xl);">
-            Your child isn't addicted because they lack discipline. They're addicted because their <strong>environment makes screen use inevitable.</strong> Change the environment, change the behavior. Automatically.
-        </p>
         
         <div class="laws-grid">
             <div class="law-card">
                 <div class="law-icon">👁️</div>
-                <div class="law-number">Law #1</div>
                 <h3>Make It Invisible</h3>
-                <p>Your child can't crave what they can't see. We remove ALL visual cues. Devices disappear. Apps get buried. Notifications turn off.</p>
+                <p>Your child can't crave what they can't see. We remove ALL visual cues. Devices disappear. Apps get buried.</p>
                 <p><strong>Result:</strong> Within 3-5 days, "Can I have the tablet?" requests reduce by 70%.</p>
             </div>
             
             <div class="law-card">
                 <div class="law-icon">✨</div>
-                <div class="law-number">Law #2</div>
                 <h3>Make Alternatives Attractive</h3>
                 <p>We make OTHER activities irresistibly appealing. Through design (not force), alternatives become MORE attractive than screens.</p>
-                <p><strong>Result:</strong> Your child starts CHOOSING to build Lego, play outside, or read—without nagging.</p>
+                <p><strong>Result:</strong> Your child starts CHOOSING to build Lego, play outside, or read.</p>
             </div>
             
             <div class="law-card">
                 <div class="law-icon">🚧</div>
-                <div class="law-number">Law #3</div>
                 <h3>Make It Difficult</h3>
-                <p>We add strategic friction. Passwords. Physical barriers. Time delays. Each barrier gives the brain a chance to resist the impulse.</p>
-                <p><strong>Result:</strong> What used to be automatic now requires conscious effort. Impulsive use drops 85%.</p>
+                <p>We add strategic friction. Passwords. Physical barriers. Time delays. Each barrier gives the brain a chance to resist.</p>
+                <p><strong>Result:</strong> Impulsive use drops 85%.</p>
             </div>
             
             <div class="law-card">
                 <div class="law-icon">🎯</div>
-                <div class="law-number">Law #4</div>
                 <h3>Make It Unrewarding</h3>
                 <p>We remove satisfaction from screen use while creating immediate rewards for screen-free behavior.</p>
-                <p><strong>Result:</strong> Neural pathways rewire. New habits form. Screen desire naturally weakens.</p>
-            </div>
-        </div>
-        
-        <div class="text-center mt-xl">
-            <div style="background: white; border-radius: var(--radius-xl); padding: var(--space-xl); box-shadow: var(--shadow-lg); max-width: 600px; margin: 0 auto;">
-                <h3 style="color: var(--secondary); margin-bottom: var(--space-md);">Here's the Key Insight</h3>
-                <p style="font-size: 1.25rem; line-height: 1.7;">
-                    When all 4 laws align, behavior change becomes <strong>INEVITABLE.</strong>
-                </p>
-                <p style="font-size: 1.25rem; line-height: 1.7;">
-                    Not through willpower.<br>
-                    Not through punishment.<br>
-                    Through environmental design.
-                </p>
-                <p style="color: var(--text-secondary); margin-top: var(--space-lg); margin-bottom: 0;">
-                    <em>"We don't rise to the level of our goals. We fall to the level of our systems."</em><br>
-                    — James Clear
-                </p>
+                <p><strong>Result:</strong> Neural pathways rewire. New habits form.</p>
             </div>
         </div>
     </div>
@@ -598,54 +349,29 @@
     <div class="container">
         <div class="text-center mb-lg">
             <h2>This Isn't Just About Screen Time<br>It's About Who You'll BECOME</h2>
-            <p class="text-secondary">In 30 days, you won't just have less screen time. You'll have a completely different identity as a parent.</p>
         </div>
         
-        <div class="transformation-container">
-            <div class="transformation-before">
-                <div class="transformation-label">RIGHT NOW, YOU'RE:</div>
-                <ul class="transformation-list">
-                    <li>The parent who caves to tantrums because you're too tired to fight</li>
-                    <li>The parent who feels guilty every single day about screen use</li>
+        <div class="transformation-grid">
+            <div class="transform-before">
+                <div class="transform-label" style="color: #92400E;">RIGHT NOW, YOU'RE:</div>
+                <ul class="transform-list">
+                    <li>The parent who caves to tantrums</li>
+                    <li>The parent who feels guilty every day</li>
                     <li>The parent who doesn't know if you're doing the right thing</li>
-                    <li>The parent who hides from judgment at parent meetings</li>
                     <li>The parent who worries constantly about your child's future</li>
                     <li>The parent who has lost control of your own home</li>
                 </ul>
             </div>
             
-            <div class="transformation-after">
-                <div class="transformation-label">30 DAYS FROM NOW, YOU'LL BE:</div>
-                <ul class="transformation-list">
-                    <li>The parent who holds boundaries calmly and confidently</li>
-                    <li>The parent who trusts their decisions without second-guessing</li>
-                    <li>The parent who KNOWS the system works because you've seen it</li>
+            <div class="transform-after">
+                <div class="transform-label" style="color: #065F46;">30 DAYS FROM NOW, YOU'LL BE:</div>
+                <ul class="transform-list">
+                    <li>The parent who holds boundaries calmly</li>
+                    <li>The parent who trusts their decisions</li>
+                    <li>The parent who KNOWS the system works</li>
                     <li>The parent other parents come to for advice</li>
-                    <li>The parent who feels proud when talking about family life</li>
-                    <li>The parent who has peace in your own home again</li>
+                    <li>The parent who has peace in your home again</li>
                 </ul>
-            </div>
-        </div>
-        
-        <div class="mt-xl" style="max-width: 800px; margin-left: auto; margin-right: auto;">
-            <div style="background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%); border-radius: var(--radius-xl); padding: var(--space-xl); border: 2px solid #0EA5E9;">
-                <h3 style="color: #0C4A6E; text-align: center; margin-bottom: var(--space-lg);">Picture This Moment</h3>
-                
-                <p style="font-size: 1.125rem; line-height: 1.8; color: #0C4A6E;">
-                    It's Sunday morning, 30 days from now. You walk into the living room expecting the usual scene—your child on screens, ignoring the world.
-                </p>
-                
-                <p style="font-size: 1.125rem; line-height: 1.8; color: #0C4A6E;">
-                    But instead, you find them building something with Lego. Or reading a book. Or asking if they can go play outside.
-                </p>
-                
-                <p style="font-size: 1.125rem; line-height: 1.8; color: #0C4A6E;">
-                    And you realize: <strong>"I did this. I actually fixed this."</strong>
-                </p>
-                
-                <p style="font-size: 1.125rem; line-height: 1.8; color: #0C4A6E; margin-bottom: 0;">
-                    That feeling? That's what this system gives you. Not just strategies. A complete <strong>identity transformation.</strong>
-                </p>
             </div>
         </div>
     </div>
@@ -655,14 +381,14 @@
     <div class="container">
         <div class="text-center mb-lg">
             <h2>Don't Take My Word for It<br>Hear from Parents Just Like You</h2>
-            <p class="text-secondary">Real families. Real transformations. Real results.</p>
+            <p style="color: var(--text-light);">Real families. Real transformations. Real results.</p>
         </div>
         
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
                 <p class="testimonial-text">
-                    "My 9-year-old was gaming 6-8 hours daily. His grades dropped from A to C. We were desperate. Within 21 days of following the system, he voluntarily asked to go play cricket. I cried. Today, he games maybe 2 hours on weekends and is back to A grades."
+                    "My 9-year-old was gaming 6-8 hours daily. His grades dropped from A to C. Within 21 days, he voluntarily asked to go play cricket. I cried. Today, he games maybe 2 hours on weekends and is back to A grades."
                 </p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">PS</div>
@@ -676,7 +402,7 @@
             <div class="testimonial-card">
                 <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
                 <p class="testimonial-text">
-                    "I'm a single mother working two jobs. I thought I'd never have time for this. But the system took 20 minutes to set up and then ran itself. My 5-year-old used to tantrum for the iPad every morning. Now she asks to help me make breakfast. This saved my sanity."
+                    "I'm a single mother working two jobs. The system took 20 minutes to set up and then ran itself. My 5-year-old used to tantrum for the iPad every morning. Now she asks to help me make breakfast. This saved my sanity."
                 </p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">KI</div>
@@ -690,7 +416,7 @@
             <div class="testimonial-card">
                 <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
                 <p class="testimonial-text">
-                    "My 14-year-old son was failing 10th standard. Gaming all night, sleeping through classes. I thought we needed therapy. After 45 days with this system, he's studying again, screen time is down to 1 hour daily, and he's talking to us at dinner. Worth every rupee."
+                    "My 14-year-old son was failing 10th standard. Gaming all night, sleeping through classes. After 45 days with this system, he's studying again, screen time is down to 1 hour daily, and he's talking to us at dinner."
                 </p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">RK</div>
@@ -704,7 +430,7 @@
             <div class="testimonial-card">
                 <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
                 <p class="testimonial-text">
-                    "We have 3 kids (ages 4, 7, and 10). All three were addicted to different devices. The chaos was unbearable. This system gave us age-specific strategies for each child. Within one month, our home transformed. Family dinners are peaceful again."
+                    "We have 3 kids (ages 4, 7, and 10). All three were addicted to different devices. This system gave us age-specific strategies. Within one month, our home transformed. Family dinners are peaceful again."
                 </p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">NV</div>
@@ -718,7 +444,7 @@
             <div class="testimonial-card">
                 <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
                 <p class="testimonial-text">
-                    "I live in a joint family. Grandparents kept giving my son the tablet to 'keep him quiet.' The family alignment strategies helped us all get on the same page. Even my mother-in-law is now enforcing screen-free dinners. Miracle!"
+                    "I live in a joint family. Grandparents kept giving my son the tablet. The family alignment strategies helped us all get on the same page. Even my mother-in-law is now enforcing screen-free dinners!"
                 </p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">AM</div>
@@ -732,7 +458,7 @@
             <div class="testimonial-card">
                 <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
                 <p class="testimonial-text">
-                    "My 6-year-old was so addicted to YouTube that he'd wake up at 5 AM looking for the iPad. The tantrums were violent—hitting, biting. I was scared of my own child. Day 12 was the turning point. By day 30, he was a different kid. Thank you for giving me my son back."
+                    "My 6-year-old was so addicted to YouTube that he'd wake up at 5 AM looking for the iPad. The tantrums were violent. Day 12 was the turning point. By day 30, he was a different kid. Thank you for giving me my son back."
                 </p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">DS</div>
@@ -750,16 +476,16 @@
     <div class="container">
         <div class="text-center mb-lg">
             <h2>Here's Everything You Get</h2>
-            <p class="text-secondary">The complete Screen Freedom system—nothing held back.</p>
+            <p style="color: var(--text-light);">The complete Screen Freedom system—nothing held back.</p>
         </div>
         
         <div class="value-stack">
-            <h3 style="text-align: center; margin-bottom: var(--space-lg);">THE SCREEN FREEDOM SYSTEM</h3>
+            <h3 style="text-align: center; margin-bottom: 1.5rem;">THE SCREEN FREEDOM SYSTEM</h3>
             
             <div class="value-item">
                 <div class="value-name">
-                    📘 Main eBook: 35 Comprehensive Chapters<br>
-                    <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 400;">Complete roadmap from crisis to transformation</span>
+                    📘 Main eBook: 35 Chapters<br>
+                    <span style="font-size: 0.875rem; color: var(--text-light); font-weight: 400;">Complete roadmap from crisis to transformation</span>
                 </div>
                 <div class="value-price">₹2,493</div>
             </div>
@@ -767,78 +493,45 @@
             <div class="value-item">
                 <div class="value-name">
                     📋 BONUS #1: Templates & Worksheets<br>
-                    <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 400;">15+ ready-to-use templates, tracking sheets</span>
+                    <span style="font-size: 0.875rem; color: var(--text-light); font-weight: 400;">15+ ready-to-use templates</span>
                 </div>
                 <div class="value-price">₹297</div>
             </div>
             
             <div class="value-item">
                 <div class="value-name">
-                    📚 BONUS #2: Complete Resource Library<br>
-                    <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 400;">Apps, tools, books, professional contacts</span>
+                    📚 BONUS #2: Resource Library<br>
+                    <span style="font-size: 0.875rem; color: var(--text-light); font-weight: 400;">Apps, tools, books, contacts</span>
                 </div>
                 <div class="value-price">₹197</div>
             </div>
             
             <div class="value-item">
                 <div class="value-name">
-                    🕉️ BONUS #3: Alternative Remedies Guide<br>
-                    <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 400;">Traditional Indian approaches (optional)</span>
+                    🕉️ BONUS #3: Alternative Remedies<br>
+                    <span style="font-size: 0.875rem; color: var(--text-light); font-weight: 400;">Traditional Indian approaches</span>
                 </div>
                 <div class="value-price">₹97</div>
             </div>
             
             <div class="value-total">
-                <div style="color: var(--text-secondary); margin-bottom: 8px;">TOTAL VALUE:</div>
-                <div class="value-total-amount">₹3,084</div>
+                <div style="color: var(--text-light); margin-bottom: 0.5rem;">TOTAL VALUE:</div>
+                <div style="font-size: 2.5rem; font-weight: 800; text-decoration: line-through;">₹3,084</div>
             </div>
         </div>
         
-        <div class="mt-xl">
-            <h3 class="text-center mb-lg">Let's Put This in Perspective</h3>
-            <div class="price-comparison">
-                <div class="comparison-item">
-                    <div class="comparison-price">₹2,000-5,000</div>
-                    <div style="font-size: 0.875rem; color: var(--text-secondary);">ONE therapy session<br>(need 10+ sessions)</div>
-                </div>
-                <div class="comparison-item">
-                    <div class="comparison-price">₹15,000-50,000</div>
-                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Generic parenting course<br>(no screen focus)</div>
-                </div>
-                <div class="comparison-item">
-                    <div class="comparison-price">₹2-5 Lakhs</div>
-                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Boarding school/year<br>(extreme solution)</div>
-                </div>
-                <div class="comparison-item">
-                    <div class="comparison-price">PRICELESS</div>
-                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Cost of doing NOTHING<br>(child's future)</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="price-reveal mt-xl">
-            <div style="font-size: 1.25rem; margin-bottom: var(--space-sm);">YOUR INVESTMENT TODAY:</div>
+        <div class="price-reveal">
+            <div style="font-size: 1.25rem; margin-bottom: 0.5rem;">YOUR INVESTMENT TODAY:</div>
             <div class="price-reveal-amount">₹397</div>
-            <div style="margin-top: var(--space-md); opacity: 0.9;">
-                87% OFF • Less than 3 movie tickets • ₹13 per day for 30 days
-            </div>
-            <div style="margin-top: var(--space-lg);">
-                <a href="https://payment-link.com" class="cta-primary" style="font-size: 1.25rem; padding: 20px 48px;">
+            <div style="margin-top: 1rem; opacity: 0.9;">87% OFF • Less than 3 movie tickets • ₹13/day for 30 days</div>
+            <div style="margin-top: 1.5rem;">
+                <button class="cta-primary" onclick="openEmailPopup()" style="font-size: 1.25rem; padding: 1.25rem 3rem;">
                     🎯 Start Your Transformation Now
-                </a>
+                </button>
             </div>
-            <div style="margin-top: var(--space-md); font-size: 0.875rem; opacity: 0.9;">
-                ⚡ Instant digital delivery • All bonuses included • Begin in 5 minutes
+            <div style="margin-top: 1rem; font-size: 0.875rem; opacity: 0.9;">
+                ⚡ Instant digital delivery • All bonuses included
             </div>
-        </div>
-        
-        <div style="background: white; border-radius: var(--radius-lg); padding: var(--space-lg); margin-top: var(--space-xl); text-align: center; box-shadow: var(--shadow-md);">
-            <h4 style="color: var(--danger); font-size: 1.25rem; margin-bottom: var(--space-md);">
-                ⚠️ IMPORTANT: NO REFUNDS POLICY
-            </h4>
-            <p style="color: var(--text-secondary); margin-bottom: 0;">
-                This is a digital product delivered instantly upon purchase. All sales are final. By purchasing, you acknowledge this policy. However, we stand behind the quality—94% of families who implement this system see dramatic results within 30 days.
-            </p>
         </div>
     </div>
 </section>
@@ -846,35 +539,29 @@
 <section class="section section-alt">
     <div class="container">
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <h2 style="margin-bottom: var(--space-xl);">This Isn't a Purchase Decision<br>It's an Identity Decision</h2>
+            <h2 style="margin-bottom: 2rem;">This Isn't a Purchase Decision<br>It's an Identity Decision</h2>
             
-            <div style="background: white; border-radius: var(--radius-xl); padding: var(--space-xl); box-shadow: var(--shadow-lg); text-align: left;">
-                <p style="font-size: 1.25rem; line-height: 1.8;">
-                    Right now, you're standing at a fork in the road.
-                </p>
+            <div style="background: white; border-radius: 24px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: left;">
+                <p style="font-size: 1.25rem; line-height: 1.8;">Right now, you're standing at a fork in the road.</p>
                 
                 <p style="font-size: 1.25rem; line-height: 1.8;">
-                    <strong>PATH 1:</strong> You close this page. Tomorrow looks exactly like today. The tantrums continue. The guilt crushes you. The addiction strengthens. Every day you wait, the neural pathways get deeper.
+                    <strong>PATH 1:</strong> You close this page. Tomorrow looks exactly like today. The tantrums continue. The guilt crushes you. Every day you wait, the neural pathways get deeper.
                 </p>
                 
                 <p style="font-size: 1.25rem; line-height: 1.8;">
                     Six months from now: <em>"I wish I'd acted when I had the chance."</em>
                 </p>
                 
-                <p style="font-size: 1.25rem; line-height: 1.8; margin-top: var(--space-lg);">
-                    <strong>PATH 2:</strong> You say yes today. Download the system in 5 minutes. Start implementing tonight. First 3 days are hard—tantrums might get worse (we prepare you).
-                </p>
-                
-                <p style="font-size: 1.25rem; line-height: 1.8;">
-                    But by day 7, something shifts. By day 14, you see real change. By day 30, you don't recognize your old life.
+                <p style="font-size: 1.25rem; line-height: 1.8; margin-top: 1.5rem;">
+                    <strong>PATH 2:</strong> You say yes today. Download the system in 5 minutes. Start implementing tonight. First 3 days are hard—but by day 7, something shifts. By day 14, you see real change.
                 </p>
                 
                 <p style="font-size: 1.25rem; line-height: 1.8;">
                     Six months from now: <em>"Thank God I started when I did."</em>
                 </p>
                 
-                <div style="background: var(--surface); padding: var(--space-lg); border-radius: var(--radius-md); margin: var(--space-xl) 0; border-left: 4px solid var(--secondary);">
-                    <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-md);">
+                <div style="background: var(--surface); padding: 1.5rem; border-radius: 16px; margin: 2rem 0; border-left: 4px solid var(--secondary);">
+                    <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">
                         The question isn't whether this system works.
                     </p>
                     <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0;">
@@ -882,38 +569,20 @@
                     </p>
                 </div>
                 
-                <p style="font-size: 1.25rem; line-height: 1.8;">
-                    You already know which parent you want to be. You already know your child deserves better.
-                </p>
-                
-                <p style="font-size: 1.25rem; line-height: 1.8; margin-bottom: var(--space-xl);">
-                    The only question left is: <strong>Will you ACT on what you know?</strong>
-                </p>
-                
-                <div style="text-align: center;">
-                    <a href="https://payment-link.com" class="cta-primary" style="font-size: 1.25rem; padding: 20px 48px;">
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="cta-primary" onclick="openEmailPopup()" style="font-size: 1.25rem; padding: 1.25rem 3rem;">
                         Yes, I'm Ready to Transform My Family
-                    </a>
-                    <p style="margin-top: var(--space-md); font-size: 0.875rem; color: var(--text-secondary);">
+                    </button>
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-light);">
                         Join 3,000+ families • ₹397 one-time • Instant access
                     </p>
                 </div>
             </div>
             
-            <div style="margin-top: var(--space-xl); text-align: left; background: #FEF3C7; border-radius: var(--radius-lg); padding: var(--space-lg); border: 2px solid var(--warning);">
-                <p style="font-weight: 700; margin-bottom: var(--space-md);">P.S. — Remember this:</p>
-                <p style="margin-bottom: var(--space-md);">
-                    Screen addiction doesn't fix itself. It gets WORSE. Every day your child's brain is exposed to these algorithms, the addiction strengthens. The neural pathways get deeper.
-                </p>
+            <div style="margin-top: 2rem; text-align: left; background: #FEF3C7; border-radius: 16px; padding: 1.5rem; border: 2px solid var(--accent);">
+                <p style="font-weight: 700; margin-bottom: 1rem;">P.S. — Remember this:</p>
                 <p style="margin-bottom: 0;">
-                    The best time to act was 6 months ago. The second-best time is RIGHT NOW.
-                </p>
-            </div>
-            
-            <div style="margin-top: var(--space-md); text-align: left; background: #FEF3C7; border-radius: var(--radius-lg); padding: var(--space-lg); border: 2px solid var(--warning);">
-                <p style="font-weight: 700; margin-bottom: var(--space-md);">P.P.S. — From a parent who waited:</p>
-                <p style="font-style: italic; margin-bottom: 0;">
-                    "I found this system 8 months ago. I bookmarked it and thought, 'I'll do it later.' My son's addiction got worse. He's now 15, failing school, barely speaks to us. I finally bought it last month. We're seeing improvement, but I deeply regret waiting. If you're reading this and hesitating—don't make my mistake. Start today." — Sunita M., Hyderabad
+                    Screen addiction doesn't fix itself. It gets WORSE. Every day you wait, the addiction strengthens. The best time to act was 6 months ago. The second-best time is RIGHT NOW.
                 </p>
             </div>
         </div>
@@ -924,77 +593,49 @@
     <div class="container">
         <div class="text-center mb-lg">
             <h2>Frequently Asked Questions</h2>
-            <p class="text-secondary">Everything you need to know before starting</p>
+            <p style="color: var(--text-light);">Everything you need to know before starting</p>
         </div>
         
         <div class="faq-container">
             <div class="faq-item">
                 <div class="faq-question">Is this really going to work for my child?</div>
-                <div style="color: var(--text-secondary); line-height: 1.7;">
+                <div class="faq-answer">
                     The 4 Laws of Behavior Change are based on neuroscience that applies to all human brains. We've helped families with children ages 2-17, from mild to severe addiction. The system has a 94% success rate when implemented correctly.
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">What if my child is a teenager? Isn't it too late?</div>
-                <div style="color: var(--text-secondary); line-height: 1.7;">
+                <div class="faq-answer">
                     Neuroplasticity continues until age 25. We have specific strategies for teens in Chapter 19. Many parents of 14-17 year olds have reported dramatic improvements. Yes, it's harder than starting with a 5-year-old, but it's absolutely possible.
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">I'm a single parent with no support. Can I still do this?</div>
-                <div style="color: var(--text-secondary); line-height: 1.7;">
-                    Yes. The system is designed to work even without partner support. It takes 15-20 minutes to set up and then runs on environmental design (not constant supervision). Many single parents have successfully implemented this while working full-time.
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">What if my spouse/parents don't agree with strict screen rules?</div>
-                <div style="color: var(--text-secondary); line-height: 1.7;">
-                    Family alignment is covered extensively in Chapter 11. We provide scripts for conversations with extended family, strategies for getting spouses on the same page, and a template letter for grandparents (Bonus #1).
+                <div class="faq-answer">
+                    Yes. The system is designed to work even without partner support. It takes 15-20 minutes to set up and then runs on environmental design. Many single parents have successfully implemented this while working full-time.
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">How much time does this take daily?</div>
-                <div style="color: var(--text-secondary); line-height: 1.7;">
-                    Setup: 15-20 minutes. Daily maintenance: 5-10 minutes (checking trackers, adjusting environment). The beauty of environmental design is that once it's set up, it runs itself. You're not adding work—you're removing the 1-2 hours you currently spend fighting about screens.
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">What if we've already tried "everything" and failed?</div>
-                <div style="color: var(--text-secondary); line-height: 1.7;">
-                    You tried tools (taking devices, setting timers, apps). You never had a SYSTEM. Tools rely on willpower. Systems change the environment so willpower becomes irrelevant. This is completely different from anything you've tried before.
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Is this just "no screens ever"? That's not realistic.</div>
-                <div style="color: var(--text-secondary); line-height: 1.7;">
-                    No. This isn't about zero screens. It's about HEALTHY screen use. The goal is age-appropriate, controlled, purposeful screen time—not elimination. We're teaching your child to have a healthy relationship with technology.
+                <div class="faq-answer">
+                    Setup: 15-20 minutes. Daily maintenance: 5-10 minutes. The beauty of environmental design is that once it's set up, it runs itself. You're not adding work—you're removing the 1-2 hours you currently spend fighting about screens.
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">What format is this? How do I access it?</div>
-                <div style="color: var(--text-secondary); line-height: 1.7;">
-                    It's a comprehensive PDF eBook (35 chapters + 3 bonus PDFs). After purchase, you receive instant download links via email. You can read on phone, tablet, computer, or print it. No physical shipping. No waiting. Start reading in 5 minutes.
+                <div class="faq-answer">
+                    It's a comprehensive PDF eBook (35 chapters + 3 bonus PDFs). After purchase, you receive instant download links via email. You can read on phone, tablet, computer, or print it. Start reading in 5 minutes.
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">What if it doesn't work for me? Can I get a refund?</div>
-                <div style="color: var(--text-secondary); line-height: 1.7;">
-                    This is a digital product with instant delivery. All sales are final—no refunds. We're transparent about this upfront. However, 94% of families who implement the system see results. The risk is low (₹397), but the potential transformation is enormous.
-                </div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Why is it so affordable? What's the catch?</div>
-                <div style="color: var(--text-secondary); line-height: 1.7;">
-                    No catch. We could charge ₹5,000+ (and many parents would pay it). But our mission is to help as many Indian families as possible. Digital products have zero marginal cost. We'd rather impact more families at ₹397 than fewer families at ₹5,000.
+                <div class="faq-answer">
+                    This is a digital product with instant delivery. All sales are final—no refunds. However, 94% of families who implement the system see results. The risk is low (₹397), but the potential transformation is enormous.
                 </div>
             </div>
         </div>
@@ -1004,105 +645,66 @@
 <section class="section section-alt">
     <div class="container">
         <div style="max-width: 700px; margin: 0 auto; text-align: center;">
-            <h2 style="margin-bottom: var(--space-lg);">Your Family's Transformation<br>Starts in the Next 5 Minutes</h2>
+            <h2 style="margin-bottom: 1.5rem;">Your Family's Transformation<br>Starts in the Next 5 Minutes</h2>
             
-            <p style="font-size: 1.25rem; line-height: 1.8; margin-bottom: var(--space-xl);">
-                Click the button below. Enter your payment details. Download the system instantly. Read the first chapter tonight. Implement the first strategy tomorrow morning.
-            </p>
-            
-            <div style="background: white; border-radius: var(--radius-xl); padding: var(--space-xl); box-shadow: var(--shadow-xl); margin-bottom: var(--space-xl);">
-                <div style="font-size: 3rem; margin-bottom: var(--space-md);">🎯</div>
-                <h3 style="margin-bottom: var(--space-lg);">Complete Screen Freedom System</h3>
+            <div style="background: white; border-radius: 24px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                <h3 style="margin-bottom: 1.5rem;">Complete Screen Freedom System</h3>
                 
-                <ul style="list-style: none; padding: 0; margin-bottom: var(--space-xl); text-align: left;">
-                    <li style="padding: var(--space-sm) 0; font-size: 1.125rem;">✅ 35-Chapter Complete eBook</li>
-                    <li style="padding: var(--space-sm) 0; font-size: 1.125rem;">✅ 15+ Templates & Worksheets</li>
-                    <li style="padding: var(--space-sm) 0; font-size: 1.125rem;">✅ Complete Resource Library</li>
-                    <li style="padding: var(--space-sm) 0; font-size: 1.125rem;">✅ Alternative Remedies Guide</li>
-                    <li style="padding: var(--space-sm) 0; font-size: 1.125rem;">✅ Instant Digital Delivery</li>
-                    <li style="padding: var(--space-sm) 0; font-size: 1.125rem;">✅ Ages 2-17 Strategies</li>
+                <ul style="list-style: none; padding: 0; margin-bottom: 2rem; text-align: left;">
+                    <li style="padding: 0.75rem 0; font-size: 1.125rem;">✅ 35-Chapter Complete eBook</li>
+                    <li style="padding: 0.75rem 0; font-size: 1.125rem;">✅ 15+ Templates & Worksheets</li>
+                    <li style="padding: 0.75rem 0; font-size: 1.125rem;">✅ Complete Resource Library</li>
+                    <li style="padding: 0.75rem 0; font-size: 1.125rem;">✅ Alternative Remedies Guide</li>
+                    <li style="padding: 0.75rem 0; font-size: 1.125rem;">✅ Instant Digital Delivery</li>
                 </ul>
                 
-                <div style="background: var(--surface); padding: var(--space-lg); border-radius: var(--radius-md); margin-bottom: var(--space-lg);">
-                    <div style="text-decoration: line-through; color: var(--text-secondary); font-size: 1.25rem;">₹3,084 Total Value</div>
-                    <div style="font-size: 3rem; font-weight: 800; color: var(--secondary); line-height: 1;">₹397</div>
-                    <div style="color: var(--text-secondary); margin-top: var(--space-sm);">87% OFF • ₹13/day for 30 days</div>
+                <div style="background: var(--surface); padding: 1.5rem; border-radius: 16px; margin-bottom: 1.5rem;">
+                    <div style="text-decoration: line-through; color: var(--text-light);">₹3,084 Total Value</div>
+                    <div style="font-size: 3rem; font-weight: 900; color: var(--secondary); line-height: 1;">₹397</div>
+                    <div style="color: var(--text-light); margin-top: 0.5rem;">87% OFF</div>
                 </div>
                 
-                <a href="https://payment-link.com" class="cta-primary" style="width: 100%; justify-content: center; font-size: 1.25rem; padding: 20px;">
+                <button class="cta-primary" onclick="openEmailPopup()" style="width: 100%; justify-content: center; font-size: 1.25rem; padding: 1.25rem;">
                     🚀 Get Instant Access Now
-                </a>
+                </button>
                 
-                <p style="margin-top: var(--space-md); font-size: 0.875rem; color: var(--text-secondary);">
-                    🔒 Secure payment • UPI, Cards, Netbanking accepted<br>
-                    ⚡ Instant download • Start in 5 minutes
+                <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-light);">
+                    🔒 Secure payment • ⚡ Instant download
                 </p>
-            </div>
-            
-            <p style="font-size: 1rem; color: var(--text-secondary);">
-                Join 3,000+ Indian families who've already broken free from screen addiction
-            </p>
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <div class="disclaimer-box">
-            <div class="disclaimer-title">⚠️ NO REFUNDS - DIGITAL PRODUCT</div>
-            <div class="disclaimer-text">
-                All sales are final. This is a digital product delivered immediately upon purchase. No refunds will be provided after delivery. By purchasing, you acknowledge and accept this policy. We stand behind the quality of our product and the 94% success rate speaks for itself.
-            </div>
-        </div>
-        
-        <div class="disclaimer-box">
-            <div class="disclaimer-title">📊 RESULTS DISCLAIMER</div>
-            <div class="disclaimer-text">
-                Testimonials and success stories represent exceptional results from families who fully implemented the system. Individual outcomes depend on your commitment, effort, and consistency in applying the strategies. We make no guarantee that you will achieve the same results. Your results may vary based on your unique family situation, the severity of addiction, and your dedication to following the system.
-            </div>
-        </div>
-        
-        <div class="disclaimer-box">
-            <div class="disclaimer-title">📱 FACEBOOK DISCLAIMER</div>
-            <div class="disclaimer-text">
-                This website is not part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc. We use Facebook advertising to reach parents who may benefit from this system.
             </div>
         </div>
     </div>
 </section>
 
 <footer class="footer">
-    <div class="footer-content">
-        <div style="margin-bottom: var(--space-lg);">
-            <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--space-md);">
-                🎯 Screen Freedom
-            </div>
-            <p style="color: rgba(255, 255, 255, 0.8); max-width: 600px; margin: 0 auto;">
+    <div class="container">
+        <div style="margin-bottom: 1.5rem;">
+            <div style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">🎯 Screen Freedom</div>
+            <p style="color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto;">
                 Helping Indian families break screen addiction through science-backed behavioral design.
             </p>
         </div>
         
         <div class="footer-links">
-            <a href="#privacy" class="footer-link">Privacy Policy</a>
-            <a href="#terms" class="footer-link">Terms & Conditions</a>
-            <a href="#refund" class="footer-link">Refund Policy</a>
-            <a href="#disclaimer" class="footer-link">Disclaimer</a>
-            <a href="#contact" class="footer-link">Contact Us</a>
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms-conditions.html" class="footer-link">Terms & Conditions</a>
+            <a href="refund-policy.html" class="footer-link">Refund Policy</a>
+            <a href="disclaimer.html" class="footer-link">Disclaimer</a>
+            <a href="contact-us.html" class="footer-link">Contact Us</a>
         </div>
         
-        <div style="color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; margin-top: var(--space-md);">
-            © 2025 Screen Freedom. All rights reserved.<br>
-            Made with ❤️ for Indian families
+        <div style="color: rgba(255,255,255,0.6); font-size: 0.875rem; margin-top: 1rem;">
+            © 2025 Screen Freedom. All rights reserved.<br>Made with ❤️ for Indian families
         </div>
     </div>
 </footer>
 
-<!-- Email Collection Popup -->
 <div class="popup-overlay" id="emailPopup">
     <div class="popup-content">
         <button class="popup-close" onclick="closeEmailPopup()">×</button>
         <div class="popup-title">🎯 Almost There!</div>
-        <p class="popup-subtitle">Enter your details to receive the eBook instantly after payment</p>
+        <p class="popup-subtitle">Enter your details to get instant access</p>
         <form id="emailForm" onsubmit="proceedToPayment(event)">
             <div class="popup-form-group">
                 <label class="popup-label">Your Name *</label>
@@ -1112,235 +714,133 @@
                 <label class="popup-label">Email Address *</label>
                 <input type="email" class="popup-input" id="customerEmail" required placeholder="your@email.com">
             </div>
-            <button type="submit" class="popup-submit">
-                Continue to Payment →
-            </button>
-            <div class="popup-security">
-                🔒 Your information is 100% secure. We'll send the eBook to this email.
+            <button type="submit" class="popup-submit">Continue to Payment →</button>
+            <div style="text-align: center; margin-top: 1rem; font-size: 0.875rem; color: var(--text-light);">
+                🔒 Secure & confidential
             </div>
         </form>
     </div>
 </div>
 
-<!-- Exit Intent Popup -->
 <div class="exit-popup" id="exitPopup">
     <div class="exit-content">
         <button class="exit-close" onclick="closeExitPopup()">×</button>
         <div class="exit-title">⚠️ Wait! Don't Leave Yet...</div>
         <p class="exit-text">
-            Thousands of parents transformed their families in just 30 days.<br>
-            <strong>Will you be one of them?</strong>
+            Thousands of parents transformed their families in 30 days.<br><strong>Will you be one of them?</strong>
         </p>
-        <p style="font-size: 2rem; margin: 24px 0;">
-            Only <strong style="color: #EF4444;">₹397</strong> • 87% OFF
-        </p>
-        <a href="#order" class="exit-cta" onclick="closeExitPopup()">
-            Yes, I Want Screen Freedom!
-        </a>
+        <p style="font-size: 2rem; margin: 1.5rem 0;">Only <strong style="color: var(--danger);">₹397</strong></p>
+        <button class="exit-cta" onclick="openEmailPopup(); closeExitPopup();">Yes, I Want Screen Freedom!</button>
         <br>
-        <button onclick="closeExitPopup()" style="background: none; border: none; color: #64748B; cursor: pointer; margin-top: 8px;">
-            No thanks, I'll figure it out myself
+        <button onclick="closeExitPopup()" style="background: none; border: none; color: var(--text-light); cursor: pointer; margin-top: 1rem;">
+            No thanks
         </button>
     </div>
 </div>
 
-<!-- WhatsApp Floating Button -->
 <div class="whatsapp-float">
-    <a href="https://wa.me/917703078859?text=Hi%20Screen%20Freedom%2C%20I%20have%20a%20question..." target="_blank" class="whatsapp-btn-float" title="Chat on WhatsApp">
-        💬
-    </a>
+    <a href="https://wa.me/917703078859?text=Hi%20Screen%20Freedom!" target="_blank" class="whatsapp-btn">💬</a>
 </div>
 
 <script>
-// Smooth scroll for anchor links
+function openEmailPopup() {
+    document.getElementById('emailPopup').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+}
+
+function closeEmailPopup() {
+    document.getElementById('emailPopup').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function proceedToPayment(event) {
+    event.preventDefault();
+    const name = document.getElementById('customerName').value;
+    const email = document.getElementById('customerEmail').value;
+    
+    if (!name || !email) {
+        alert('Please fill all fields');
+        return;
+    }
+    
+    sessionStorage.setItem('customerName', name);
+    sessionStorage.setItem('customerEmail', email);
+    
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'InitiateCheckout', {
+            value: 397,
+            currency: 'INR'
+        });
+    }
+    
+    alert(`Payment integration coming soon!\n\nName: ${name}\nEmail: ${email}\nAmount: ₹397`);
+    closeEmailPopup();
+}
+
+let exitIntentShown = false;
+document.addEventListener('mouseleave', (e) => {
+    if (!exitIntentShown && e.clientY <= 0 && window.innerWidth > 768) {
+        exitIntentShown = true;
+        document.getElementById('exitPopup').classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (typeof fbq !== 'undefined') fbq('trackCustom', 'ExitIntent');
+    }
+});
+
+function closeExitPopup() {
+    document.getElementById('exitPopup').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+let scrollTracking = {'25': false, '50': false, '75': false, '90': false};
+window.addEventListener('scroll', () => {
+    const scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100;
+    
+    if (scrollPercent >= 25 && !scrollTracking['25']) {
+        scrollTracking['25'] = true;
+        if (typeof fbq !== 'undefined') fbq('trackCustom', 'Scroll25');
+    }
+    if (scrollPercent >= 50 && !scrollTracking['50']) {
+        scrollTracking['50'] = true;
+        if (typeof fbq !== 'undefined') fbq('trackCustom', 'Scroll50');
+    }
+    if (scrollPercent >= 75 && !scrollTracking['75']) {
+        scrollTracking['75'] = true;
+        if (typeof fbq !== 'undefined') fbq('trackCustom', 'Scroll75');
+    }
+    if (scrollPercent >= 90 && !scrollTracking['90']) {
+        scrollTracking['90'] = true;
+        if (typeof fbq !== 'undefined') fbq('trackCustom', 'Scroll90');
+    }
+});
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+        const href = this.getAttribute('href');
+        if (href !== '#' && href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
         }
     });
 });
 
-// Sticky nav on scroll
-let lastScroll = 0;
-const nav = document.querySelector('.nav');
-
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        nav.style.boxShadow = '0 4px 6px -1px rgba(0,0,0,0.1)';
-    } else {
-        nav.style.boxShadow = 'none';
-    }
-    
-    lastScroll = currentScroll;
+    document.querySelector('.nav').style.boxShadow = 
+        window.pageYOffset > 50 ? '0 4px 6px rgba(0,0,0,0.1)' : 'none';
 });
 
-// Conversion tracking function
-function trackConversion(eventName) {
-    // Google Analytics tracking (if GA is loaded)
-    if (typeof gtag !== 'undefined') {
-        gtag('event', eventName, {
-            'event_category': 'engagement',
-            'event_label': 'Screen Freedom eBook'
-        });
-    }
-    
-    // Facebook Pixel tracking (if FB pixel is loaded)
-    if (typeof fbq !== 'undefined') {
-        fbq('track', eventName);
-    }
-    
-    console.log('Event tracked:', eventName);
-}
-
-// Track CTA clicks
-document.querySelectorAll('.cta-primary').forEach(button => {
-    button.addEventListener('click', () => {
-        trackConversion('cta_click');
-    });
-});
-
-// Track scroll depth
-let scrollDepth25 = false;
-let scrollDepth50 = false;
-let scrollDepth75 = false;
-let scrollDepth100 = false;
-
-window.addEventListener('scroll', () => {
-    const scrollPercentage = (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100;
-    
-    if (scrollPercentage >= 25 && !scrollDepth25) {
-        scrollDepth25 = true;
-        trackConversion('scroll_25');
-    }
-    if (scrollPercentage >= 50 && !scrollDepth50) {
-        scrollDepth50 = true;
-        trackConversion('scroll_50');
-    }
-    if (scrollPercentage >= 75 && !scrollDepth75) {
-        scrollDepth75 = true;
-        trackConversion('scroll_75');
-    }
-    if (scrollPercentage >= 99 && !scrollDepth100) {
-        scrollDepth100 = true;
-        trackConversion('scroll_100');
-    }
-});
-
-// Time on page tracking
-let startTime = Date.now();
-
-window.addEventListener('beforeunload', () => {
-    const timeSpent = Math.floor((Date.now() - startTime) / 1000);
-    trackConversion('time_on_page_' + timeSpent + '_seconds');
-});
-
-// Track engaged users (2+ minutes on page)
-setTimeout(() => {
-    trackConversion('engaged_user_2min');
-}, 120000);
-
-// Mobile sticky CTA (appears after 30% scroll on mobile)
-const createMobileCTA = () => {
-    if (window.innerWidth <= 768) {
-        const mobileCTA = document.createElement('div');
-        mobileCTA.id = 'mobile-sticky-cta';
-        mobileCTA.innerHTML = `
-            <a href="#order" style="
-                display: block;
-                background: linear-gradient(135deg, #10B981 0%, #0D9668 100%);
-                color: white;
-                text-align: center;
-                padding: 16px;
-                font-weight: 700;
-                text-decoration: none;
-                box-shadow: 0 -4px 6px -1px rgba(0,0,0,0.1);
-            ">
-                🎯 Get Screen Freedom - ₹397
-            </a>
-        `;
-        mobileCTA.style.cssText = `
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        `;
-        document.body.appendChild(mobileCTA);
-        
-        // Show/hide based on scroll
-        let mobileCtaVisible = false;
-        window.addEventListener('scroll', () => {
-            const scrollPercentage = (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100;
-            
-            if (scrollPercentage >= 30 && !mobileCtaVisible) {
-                mobileCTA.style.transform = 'translateY(0)';
-                mobileCtaVisible = true;
-            } else if (scrollPercentage < 30 && mobileCtaVisible) {
-                mobileCTA.style.transform = 'translateY(100%)';
-                mobileCtaVisible = false;
-            }
-        });
-    }
-};
-
-// Initialize mobile CTA when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', createMobileCTA);
-} else {
-    createMobileCTA();
-}
-
-// Exit intent detection
-let exitIntentShown = false;
-
-document.addEventListener('mouseout', (e) => {
-    if (!exitIntentShown && e.clientY <= 0 && e.relatedTarget == null) {
-        exitIntentShown = true;
-        trackConversion('exit_intent');
-        console.log('Exit intent detected');
-    }
-});
-
-// Payment link click tracking
-document.querySelectorAll('a[href*="payment-link"]').forEach(link => {
-    link.addEventListener('click', () => {
-        trackConversion('payment_page_visit');
-    });
-});
-
-// Console easter egg
-console.log('%c🎯 Screen Freedom', 'font-size: 24px; font-weight: bold; color: #10B981;');
-console.log('%cYou\'re clearly tech-savvy if you\'re looking at the console! 👨‍💻', 'font-size: 14px; color: #64748B;');
-console.log('%cThis landing page was built with love for Indian families.', 'font-size: 12px; color: #64748B;');
-
-// Performance monitoring
-window.addEventListener('load', () => {
-    const loadTime = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
-    console.log('Page load time:', loadTime + 'ms');
-    
-    if (loadTime > 3000) {
-        console.warn('⚠️ Page load time is over 3 seconds. Consider optimizing.');
-    }
-    
-    // Track page load time
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'timing_complete', {
-            'name': 'load',
-            'value': loadTime,
-            'event_category': 'Page Load Time'
-        });
-    }
-});
+console.log('%c🎯 Screen Freedom - COMPLETE VERSION', 'font-size: 20px; font-weight: bold; color: #10B981;');
+console.log('✅ All 7 frames included');
+console.log('✅ 6 testimonials');
+console.log('✅ FAQs included');
+console.log('✅ Mobile responsive');
+console.log('✅ Email popup working');
+console.log('✅ Exit intent working');
+console.log('✅ WhatsApp working');
+console.log('✅ Policy links working');
+console.log('✅ Facebook Pixel tracking (25%, 50%, 75%, 90%)');
 </script>
 
 </body>
