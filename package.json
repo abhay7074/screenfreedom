@@ -1,1 +1,8 @@
-
+{
+  "name": "screen-freedom-landing",
+  "version": "1.0.0",
+  "description": "Screen Freedom Landing Page with Cashfree Payment Integration",
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}
