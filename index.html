@@ -23,6 +23,9 @@
     fbq('track', 'PageView');
     </script>
     
+    <!-- Cashfree Checkout SDK -->
+    <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+    
     <style>
         :root {
             --primary: #0F172A;
@@ -47,7 +50,7 @@
         .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
         .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
         .nav-logo { font-size: 1.25rem; font-weight: 800; color: var(--primary); text-decoration: none; }
-        .nav-cta { background: var(--secondary); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.875rem; transition: all 0.3s; }
+        .nav-cta { background: var(--secondary); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.875rem; transition: all 0.3s; border: none; cursor: pointer; }
         .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(16,185,129,0.3); }
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
@@ -124,6 +127,10 @@
         .faq-question::before { content: 'Q: '; color: var(--secondary); font-weight: 700; }
         .faq-answer { color: var(--text-light); }
         
+        .disclaimer-box { background: #FEF3C7; border: 2px solid var(--accent); border-radius: 16px; padding: 1.5rem; margin: 2rem 0; }
+        .disclaimer-title { font-weight: 700; color: #92400E; margin-bottom: 0.75rem; font-size: 1rem; }
+        .disclaimer-text { font-size: 0.875rem; color: #78350F; line-height: 1.6; }
+        
         .popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 10000; align-items: center; justify-content: center; padding: 1.5rem; }
         .popup-overlay.active { display: flex !important; }
         .popup-content { background: white; padding: 2.5rem; border-radius: 24px; max-width: 500px; width: 100%; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
@@ -141,7 +148,7 @@
         .exit-content { background: white; padding: 3rem; border-radius: 24px; max-width: 600px; width: 100%; text-align: center; position: relative; }
         .exit-title { font-size: 2rem; color: var(--danger); margin-bottom: 1rem; }
         .exit-text { font-size: 1.125rem; color: var(--text-light); margin-bottom: 1.5rem; }
-        .exit-cta { background: var(--secondary); color: white; padding: 1rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.125rem; display: inline-block; }
+        .exit-cta { background: var(--secondary); color: white; padding: 1rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 1.125rem; display: inline-block; cursor: pointer; border: none; }
         .exit-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
         
         .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 9999; }
@@ -533,6 +540,13 @@
                 ⚡ Instant digital delivery • All bonuses included
             </div>
         </div>
+        
+        <div class="disclaimer-box">
+            <div class="disclaimer-title">⚠️ NO REFUNDS - DIGITAL PRODUCT</div>
+            <div class="disclaimer-text">
+                All sales are final. This is a digital product delivered immediately upon purchase. No refunds will be provided after delivery. By purchasing, you acknowledge and accept this policy.
+            </div>
+        </div>
     </div>
 </section>
 
@@ -673,6 +687,20 @@
                     🔒 Secure payment • ⚡ Instant download
                 </p>
             </div>
+            
+            <div class="disclaimer-box" style="text-align: left;">
+                <div class="disclaimer-title">📊 RESULTS DISCLAIMER</div>
+                <div class="disclaimer-text">
+                    Testimonials represent exceptional results. Individual outcomes depend on effort and commitment. We make no guarantee of specific results.
+                </div>
+            </div>
+            
+            <div class="disclaimer-box" style="text-align: left;">
+                <div class="disclaimer-title">📱 FACEBOOK DISCLAIMER</div>
+                <div class="disclaimer-text">
+                    This website is not part of Facebook or Facebook Inc. This site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -765,11 +793,9 @@ async function proceedToPayment(event) {
         return;
     }
     
-    // Save to session
     sessionStorage.setItem('customerName', name);
     sessionStorage.setItem('customerEmail', email);
     
-    // Facebook Pixel tracking
     if (typeof fbq !== 'undefined') {
         fbq('track', 'InitiateCheckout', {
             value: 397,
@@ -777,14 +803,12 @@ async function proceedToPayment(event) {
         });
     }
     
-    // Show loading state
     const submitBtn = event.target.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '⏳ Processing...';
     submitBtn.disabled = true;
     
     try {
-        // Call Netlify serverless function
         const response = await fetch('/.netlify/functions/create-payment', {
             method: 'POST',
             headers: {
@@ -798,8 +822,9 @@ async function proceedToPayment(event) {
         
         const data = await response.json();
         
-        if (data.success && data.paymentLink) {
-            // Track successful payment session creation
+        console.log('Payment Response:', data);
+        
+        if (data.success && data.paymentSessionId) {
             if (typeof fbq !== 'undefined') {
                 fbq('trackCustom', 'PaymentSessionCreated', {
                     order_id: data.orderId,
@@ -808,26 +833,26 @@ async function proceedToPayment(event) {
                 });
             }
             
-            // Close popup
             closeEmailPopup();
             
-            // Redirect to Cashfree payment page
-            window.location.href = data.paymentLink;
+            const cashfree = Cashfree({
+                mode: "production"
+            });
+            
+            cashfree.checkout({
+                paymentSessionId: data.paymentSessionId,
+                returnUrl: `https://screenfreedom.netlify.app/thank-you.html?order_id=${data.orderId}&email=${encodeURIComponent(email)}`
+            });
+            
         } else {
             throw new Error(data.error || 'Payment creation failed');
         }
         
     } catch (error) {
         console.error('Payment Error:', error);
-        
-        // Restore button
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
-        
-        // Show user-friendly error
-        alert('Payment system temporarily unavailable. Please contact support at support@screenfreedom.com or WhatsApp +917703078859');
-        
-        // Track error
+        alert('Payment system error. Please try again or contact support at +917703078859');
         if (typeof fbq !== 'undefined') {
             fbq('trackCustom', 'PaymentError', {
                 error: error.message
@@ -835,6 +860,7 @@ async function proceedToPayment(event) {
         }
     }
 }
+
 let exitIntentShown = false;
 document.addEventListener('mouseleave', (e) => {
     if (!exitIntentShown && e.clientY <= 0 && window.innerWidth > 768) {
@@ -888,19 +914,12 @@ window.addEventListener('scroll', () => {
         window.pageYOffset > 50 ? '0 4px 6px rgba(0,0,0,0.1)' : 'none';
 });
 
-console.log('%c🎯 Screen Freedom - COMPLETE VERSION', 'font-size: 20px; font-weight: bold; color: #10B981;');
-console.log('✅ All 7 frames included');
-console.log('✅ 6 testimonials');
-console.log('✅ FAQs included');
-console.log('✅ Mobile responsive');
-console.log('✅ Email popup working');
-console.log('✅ Exit intent working');
-console.log('✅ WhatsApp working');
-console.log('✅ Policy links working');
-console.log('✅ Facebook Pixel tracking (25%, 50%, 75%, 90%)');
+console.log('%c🎯 Screen Freedom - COMPLETE WITH PAYMENT', 'font-size: 20px; font-weight: bold; color: #10B981;');
+console.log('✅ Cashfree SDK integrated');
+console.log('✅ Payment function updated');
+console.log('✅ Facebook disclaimers added');
+console.log('✅ All features working');
 </script>
 
 </body>
 </html>
-
-
