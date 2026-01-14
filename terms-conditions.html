@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms & Conditions - Screen Freedom</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Facebook Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '713158408325221');
+    fbq('track', 'PageView');
+    </script>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; line-height: 1.7; color: #1E293B; background: #F8FAFC; }
@@ -25,6 +40,20 @@
         a:hover { text-decoration: underline; }
         .back-link { display: inline-block; margin-bottom: 24px; color: #10B981; font-weight: 600; }
         strong { color: #0F172A; }
+        
+        /* WhatsApp Button */
+        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 9999; }
+        .whatsapp-btn { width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; text-decoration: none; box-shadow: 0 4px 15px rgba(37,211,102,0.4); }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .container { padding: 24px 16px; }
+            .content { padding: 24px 20px; }
+            .header h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.125rem; }
+            p, li { font-size: 0.9375rem; }
+        }
     </style>
 </head>
 <body>
@@ -356,6 +385,11 @@
             By purchasing from or using Screen Freedom, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions.
         </p>
     </div>
+</div>
+
+<!-- WhatsApp Button -->
+<div class="whatsapp-float">
+    <a href="https://wa.me/917703078859?text=Hi%20Screen%20Freedom!" target="_blank" class="whatsapp-btn">💬</a>
 </div>
 
 </body>
