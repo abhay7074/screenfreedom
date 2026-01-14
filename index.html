@@ -754,8 +754,9 @@ function closeEmailPopup() {
     document.body.style.overflow = 'auto';
 }
 
-function proceedToPayment(event) {
+async function proceedToPayment(event) {
     event.preventDefault();
+    
     const name = document.getElementById('customerName').value;
     const email = document.getElementById('customerEmail').value;
     
@@ -764,15 +765,76 @@ function proceedToPayment(event) {
         return;
     }
     
+    // Save to session
     sessionStorage.setItem('customerName', name);
     sessionStorage.setItem('customerEmail', email);
     
+    // Facebook Pixel tracking
     if (typeof fbq !== 'undefined') {
         fbq('track', 'InitiateCheckout', {
             value: 397,
             currency: 'INR'
         });
     }
+    
+    // Show loading state
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '⏳ Processing...';
+    submitBtn.disabled = true;
+    
+    try {
+        // Call Netlify serverless function
+        const response = await fetch('/.netlify/functions/create-payment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                customerName: name,
+                customerEmail: email
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success && data.paymentLink) {
+            // Track successful payment session creation
+            if (typeof fbq !== 'undefined') {
+                fbq('trackCustom', 'PaymentSessionCreated', {
+                    order_id: data.orderId,
+                    value: 397,
+                    currency: 'INR'
+                });
+            }
+            
+            // Close popup
+            closeEmailPopup();
+            
+            // Redirect to Cashfree payment page
+            window.location.href = data.paymentLink;
+        } else {
+            throw new Error(data.error || 'Payment creation failed');
+        }
+        
+    } catch (error) {
+        console.error('Payment Error:', error);
+        
+        // Restore button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        
+        // Show user-friendly error
+        alert('Payment system temporarily unavailable. Please contact support at support@screenfreedom.com or WhatsApp +917703078859');
+        
+        // Track error
+        if (typeof fbq !== 'undefined') {
+            fbq('trackCustom', 'PaymentError', {
+                error: error.message
+            });
+        }
+    }
+}
     
     alert(`Payment integration coming soon!\n\nName: ${name}\nEmail: ${email}\nAmount: ₹397`);
     closeEmailPopup();
@@ -845,3 +907,4 @@ console.log('✅ Facebook Pixel tracking (25%, 50%, 75%, 90%)');
 
 </body>
 </html>
+
